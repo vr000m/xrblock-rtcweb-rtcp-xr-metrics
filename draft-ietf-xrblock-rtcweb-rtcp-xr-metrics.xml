@@ -425,14 +425,14 @@ F38   The browser must be able to collect statistics, related to the
 
     <section title="Variables from XR Blocks">
       <t></t>
-      <!-- -      
+     
       <section title="Cumulative Number of Packets Lost">
         <t>Name: LostPacketCount</t>
         <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
       </section> 
-      -->
+     
       
-      <section title="Packets and Octets Discarded">
+      <section title="Cumulative Number of Packets and Octets Discarded">
         <!-- ######## -->
         <t>Name: PacketsDiscarded</t>
         <t>Definition: Cumulative Number of RTP packets discarded due 
@@ -632,13 +632,13 @@ F38   The browser must be able to collect statistics, related to the
            <t>Submitted as WG Draft.</t>
          </list></t>
       </section>
-	    <section title="changes in draft-huang-xrblock-rtcweb-rtcp-xr-metrics-04"> 
-	       <t><list style="symbols">
-	         <t>Addressed comments from the London IETF meeting:</t>
+      <section title="changes in draft-huang-xrblock-rtcweb-rtcp-xr-metrics-04"> 
+         <t><list style="symbols">
+           <t>Addressed comments from the London IETF meeting:</t>
            <t>Removed ECN metrics.</t>
-			     <t>Merged draft-singh-xrblock-webrtc-additional-stats-01</t>
-			   </list></t>
-	   </section>
+           <t>Merged draft-singh-xrblock-webrtc-additional-stats-01</t>
+         </list></t>
+     </section>
   </section>
     <!-- Change Log v00 2013-10-01 Varun Initial version -->
   </back>
