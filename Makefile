@@ -7,9 +7,9 @@
 #             echo Working directory is dirty >&2; \
 #         fi
 
-DRAFTS =	draft-huang-xrblock-rtcweb-rtcp-xr-metrics.txt \
-					draft-huang-xrblock-rtcweb-rtcp-xr-metrics.html \
-					draft-huang-xrblock-rtcweb-rtcp-xr-metrics.pdf
+DRAFTS =	draft-ietf-xrblock-rtcweb-rtcp-xr-metrics.txt \
+					draft-ietf-xrblock-rtcweb-rtcp-xr-metrics.html \
+					draft-ietf-xrblock-rtcweb-rtcp-xr-metrics.pdf
 
 CMDSEP = ;
 #VERSION = 00 
