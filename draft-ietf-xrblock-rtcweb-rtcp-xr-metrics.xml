@@ -154,21 +154,17 @@ F38   The browser must be able to collect statistics, related to the
       quality of experience.
 ]]></artwork></figure>
     <t>
-      The <xref target="I-D.alvestrand-rtcweb-stats-registry" />
-      describes a registration procedure for metrics reported by the 
-      WebRTC <xref target="W3C.WD-webrtc-20130910">Stats API</xref>. 
-      It currently lists basic metrics reported in the <xref target="RFC3550">
-      RTCP Sender and Receiver Report (SR/RR)</xref> to fulfill this requirement. 
-      However, the basic metrics from RTCP SR/RR are not sufficient for precise 
-      quality monitoring, or diagnosing potential issues. </t>
+      The WebRTC <xref target="StatsAPI">Stats API</xref> currently lists 
+      metrics reported in the <xref target="RFC3550">RTCP Sender and Receiver 
+      Report (SR/RR)</xref> to fulfill this requirement. However, the basic 
+      metrics from RTCP SR/RR are not sufficient for precise quality monitoring, 
+      or diagnosing potential issues. </t>
 
     <t>
       In this document, we provide some guidelines on choosing additional 
-      RTP metrics for the <xref target="W3C.WD-webrtc-20130910" >WebRTC Stats API</xref>.
-      Furthermore, we expose additional RTCP XR metrics to complement the identifiers 
-      that already exist in the 
-      <xref target="I-D.alvestrand-rtcweb-stats-registry" >statistics registry</xref>.
-    </t>
+      RTP metrics for the <xref target="W3C.WD-webrtc-20130910" >WebRTC</xref>.
+      Furthermore, we create a registry containing metrics reported in RTCP XR.
+    </t> 
   </section>
 
   <section anchor="terms" title="Terminology">
@@ -189,16 +185,14 @@ F38   The browser must be able to collect statistics, related to the
       stream level, session level, and other aspects. -->
 
     <t>
-      Currently, the <xref target="I-D.alvestrand-rtcweb-stats-registry">statistics 
-      registry</xref> exposes the basic RTCP SR and RR metrics for the local and 
-      remote media streams. The exposed identifiers are: SentPacketCount, SentOctetCount, 
-      packetsLost, Jitter, ReceivedPacketCount, ReceivedOctetCount. However, these 
-      metrics provides only partial or limited information, which may not be sufficient 
-      for diagnosing problems or quality monitoring. For example, it may be useful to 
+      The <xref target="RFC3550">RTCP SR and RR</xref> exposes the basic metrics 
+      for the local and remote media streams. However, these metrics provides 
+      only partial or limited information, which may not be sufficient for 
+      diagnosing problems or quality monitoring. For example, it may be useful to
       distinguish between packets lost and packets discarded due to late arrival, 
       even though they have the same impact on the multimedia quality, it helps
       in diagnosing and identifying issues.
-    </t>
+    </t> 
 
     <t> 
       <xref target="RFC3611">RTP Control Protocol Extended Reports</xref> and other 
@@ -221,7 +215,7 @@ F38   The browser must be able to collect statistics, related to the
     <!-- TODO: VS -->
     <t>
       The WebRTC application extracts the statistic from the browser by querying 
-      the <xref target="W3C.WD-webrtc-20130910">Stats API</xref>, but the browser 
+      the <xref target="W3C.WD-webrtc-20130910">getStats() API</xref>, but the browser 
       currently only reports the local variables i.e., the statistics related 
       to the outgoing RTP media streams and the incoming RTP media streams. 
       Without the support of RTCP XRs or some other signaling mechianism, the WebRTC
@@ -257,7 +251,7 @@ F38   The browser must be able to collect statistics, related to the
     </t>
 
     <t>
-      When using WebRTC Statistics APIs (see section 7 of 
+      When using WebRTC getStats() APIs (see section 7 of 
       <xref target="W3C.WD-webrtc-20130910" />), the applications can query 
       this information at arbitrary intervals. For the statistics reported 
       by the remote endpoint, e.g., those conveyed in an RTCP SR/RR/XR, these 
@@ -560,9 +554,30 @@ F38   The browser must be able to collect statistics, related to the
 
     <section title="Variables from XR Blocks">
       <t></t>
+
+      <section title="Cumulative Number of Packets and Octets Sent">
+        <!-- ######## -->
+        <t>Name: PacketsSent</t>
+        <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
+        
+        <!-- ######## -->
+        <t>Name: OctetsSent</t>
+        <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
+      </section> 
+     
+     <section title="Cumulative Number of Packets and Octets Received">
+        <!-- ######## -->
+        <t>Name: PacketsReceived</t>
+        <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
+        
+        <!-- ######## -->
+        <t>Name: OctetsReceived</t>
+        <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
+      </section> 
      
       <section title="Cumulative Number of Packets Lost">
-        <t>Name: LostPacketCount</t>
+        <!-- ######## -->
+        <t>Name: PacketsLost</t>
         <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
       </section> 
      
@@ -723,6 +738,16 @@ F38   The browser must be able to collect statistics, related to the
     &W3C.WD-webrtc-20130910;
     &I-D.ietf-rtcweb-rtp-usage;
     &I-D.ietf-rtcweb-security;
+    <reference anchor="StatsAPI">
+      <front>
+        <title>Identifiers for WebRTC's Statistics API</title>
+        <author initials="V" surname="Singh"></author>
+        <author initials="H" surname="Alvestrand"></author>
+        <date month="09" year="2014" />
+      </front>
+      <seriesInfo name="World Wide Web Consortium WD" value="WD-webrtc-stats-20140930" />
+    </reference>
+  
   </references>
   
   <!-- <section title="Metrics represented using RFC6390 Template">
