@@ -598,39 +598,38 @@ F38   The browser must be able to collect statistics, related to the
     <section title="Cumulative Number of Packets and Octets Received">
       <!-- ######## -->
       <t>Name: packetsReceived</t>
-      <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
+      <t>Definition: section 6.4.1 in <xref target="RFC3550" />.</t>
 
       <!-- ######## -->
       <t>Name: bytesReceived</t>
-      <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
+      <t>Definition: section 6.4.1 in <xref target="RFC3550" />.</t>
     </section>
 
     <section title="Cumulative Number of Packets Lost">
       <!-- ######## -->
       <t>Name: packetsLost</t>
-      <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
+      <t>Definition: section 6.4.1 in <xref target="RFC3550" />.</t>
     </section>
 
     <section title="Interval Fraction Packets Lost and Jitter">
       <!-- ######## -->
       <t>Name: jitter</t>
-      <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
+      <t>Definition: section 6.4.1 in <xref target="RFC3550" />.</t>
       <!-- ######## -->
       <t>Name: fractionLost</t>
-      <t>Definition: section 6.4.1 in <xref target="RFC3550" /></t>
+      <t>Definition: section 6.4.1 in <xref target="RFC3550" />.</t>
     </section>
 
     <section title="Cumulative Number of Packets and Octets Discarded">
       <!-- ######## -->
       <t>Name: packetsDiscarded</t>
-      <t>Definition: Cumulative Number of RTP packets discarded due
+      <t>Definition: The cumulative number of RTP packets discarded due
         to late or early-arrival, Appendix A (a) of <xref target="RFC7002" />.</t>
 
       <!-- ######## -->
       <t>Name: bytesDiscarded</t>
-      <t>Definition: Cumulative Number of octets discarded due to late or
-        early-arrival, Appendix A of
-      <xref target="RFC7243" /></t>
+      <t>Definition: The cumulative number of octets discarded due to late or
+        early-arrival, Appendix A of <xref target="RFC7243" />.</t>
 
     </section>
 
@@ -661,7 +660,7 @@ F38   The browser must be able to collect statistics, related to the
     <section title="Burst Packet Loss and§ Discard">
       <!-- ######## -->
       <t>Name: burstDiscards</t>
-      <t>Definition: The total number of RTP packets discarded during discard
+      <t>Definition: The cumulative number of RTP packets discarded during discard
         bursts, Appendix A (b) of <xref target="RFC7003" />.</t>
 
       <t>Name: burstDiscardCount</t>
@@ -670,35 +669,37 @@ F38   The browser must be able to collect statistics, related to the
 
       <!-- ######## -->
       <t>Name: burstLoss</t>
-      <t>Definition: The total number of RTP packets lost during loss bursts,
+      <t>Definition: The cumulative number of RTP packets lost during loss bursts,
         Appendix A (c) of <xref target="RFC6958" />.</t>
 
       <t>Name: burstLossCount</t>
       <t>Definition: The cumulative number of bursts of lost RTP
         packets, Appendix A (e) of <xref target="RFC6958" />.</t>
 
-      <t><xref target="RFC3611" /> recommends a Gmin (threshold) value of 16.</t>
+      <t><xref target="RFC3611" /> recommends a Gmin (threshold) value of 16
+      for classifying packet loss or discard burst.</t>
 
     </section>
 
-
     <section title="Frame Impairment Metrics">
       <!-- ######## -->
-      <t>Name: FullFramesLostCount</t>
-      <t>Definition: Number of full frames lost, Appendix A (i) of <xref
-      target="RFC7004" /></t>
-
-
-      <!-- VS: Partial frames lost? -->
-      <!-- ######## -->
-      <t>Name: PartialFramesLostCount</t>
-      <t>Definition: Number of frames partially lost, Appendix A (j) of
-      <xref target="RFC7004" /></t>
+      <t>Name: framesLost</t>
+      <t>Definition: The cumulative number of full frames lost,
+        Appendix A (i) of <xref target="RFC7004" />.</t>
 
       <!-- ######## -->
-      <t>Name: FramesDiscardedCount</t>
-      <t>Definition: Number of full frames discarded, Appendix A (g) of
-      <xref target="RFC7004" /></t>
+      <t>Name: framesCorrupted</t>
+      <t>Definition: The cumulative number of frames partially lost,
+        Appendix A (j) of <xref target="RFC7004" />.</t>
+
+      <!-- ######## -->
+      <t>Name: framesDropped</t>
+      <t>Definition: The cumulative number of full frames discarded,
+        Appendix A (g) of <xref target="RFC7004" />.</t>
+
+      <t>Name: framesReceived</t>
+      <t>Definition: The cumulative number of partial or full frames
+        received.</t>
 
     </section>
 
