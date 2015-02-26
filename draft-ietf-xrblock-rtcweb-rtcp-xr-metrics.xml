@@ -74,6 +74,7 @@ category="std">
           <country>Finland</country>
         </postal>
         <email>varun@callstats.io</email>
+        <uri>http://www.callstats.io/</uri>
       </address>
     </author>
 
@@ -129,12 +130,14 @@ category="std">
     <keyword>statistics</keyword>
     <abstract>
       <t>
-        This document describes monitoring features related to RTCWEB.
-        It provides a list of RTCP XR metrics, which are useful and may
-        need to be supported in some RTCWEB implementations.
-        It also describes a list of additional identifiers for
-        WebRTC's statistics API. These identifiers are a set of RTCP
-        XR metrics related to the transport of multimedia flows.
+        This document describes monitoring features related to media streams
+        in Web real-time communication (WebRTC).
+        It provides a list of RTCP Sender Report, Receiver Report
+        and Extended Report metrics, which may need to be supported by RTP
+        implementations in some diverse environments. It also defines a new
+        IANA registry, a list of identifiers for the WebRTC's statistics API.
+        These identifiers are a set of RTCP SR, RR, and XR metrics related to
+        the transport of multimedia flows.
       </t>
     </abstract>
 </front>
@@ -142,7 +145,7 @@ category="std">
 <middle>
   <section title="Introduction">
     <t>
-      Web-based real-time communication (WebRTC) deployments are emerging and
+      Web real-time communication (WebRTC) deployments are emerging and
       applications need to be able to estimate the service quality. If
       sufficient information (metrics or statistics) are provided to the
       applications, it can attempt to improve the media quality. <xref
@@ -158,11 +161,11 @@ F38   The browser must be able to collect statistics, related to the
       quality of experience.
 ]]></artwork></figure>
     <t>
-      The WebRTC <xref target="W3C.WD-webrtc-stats-20150206">Stats API</xref> currently lists
-      metrics reported in the <xref target="RFC3550">RTCP Sender and Receiver
-      Report (SR/RR)</xref> to fulfill this requirement. However, the basic
-      metrics from RTCP SR/RR are not sufficient for precise quality monitoring,
-      or diagnosing potential issues. </t>
+      The WebRTC <xref target="W3C.WD-webrtc-stats-20150206">Stats API</xref>
+      currently lists metrics reported in the <xref target="RFC3550">RTCP Sender
+      and Receiver Report (SR/RR)</xref> to fulfill this requirement. However,
+      the basic metrics from RTCP SR/RR are not sufficient for precise quality
+      monitoring, or diagnosing potential issues. </t>
 
     <t>
       In this document, we provide some guidelines on choosing additional
@@ -544,59 +547,34 @@ F38   The browser must be able to collect statistics, related to the
     <!-- end of section -->
   </section>
 
+  <section anchor="stats-groups" title="Identifiers from Sender, Receiver, and Extended Report Blocks">
 
-
-  <section anchor="add-stats" title="WebRTC RTP Metrics Registry for the Statistics API">
     <t>
       This document describes a list of metrics and corresponding identifiers
-      relevant to RTP media in Web-based Real-time Communication (WebRTC).
-      These group of identifiers are defined on a ReportGroup corresponding to
-      an Synchronization source (SSRC). In practice the application MUST be
-      able to query the statistic identifiers on both an incoming (remote) and
-      outgoing (local) media stream. Since sending and receiving SR and RR
-      are mandatory, the metrics defined in the SR and RR report blocks are
-      always available. For XR metrics, it depends on two factors: 1) if
-      it measured at the endpoint, 2) if it reported by the endpoint in an
-      XR report. If a metric is only measured by the endpoint and not reported,
-      the metrics will be only available for the incoming (remote) media stream.
-      Additionally, if the corresponding metric is also reported in an XR block,
-      it will be available for both the incoming (remote) and outgoing (local)
-      media stream.
+      relevant to RTP media in WebRTC. These group of identifiers are defined
+      on a ReportGroup corresponding to an Synchronization source (SSRC). In
+      practice the application MUST be able to query the statistic identifiers
+      on both an incoming (remote) and outgoing (local) media stream. Since
+      sending and receiving SR and RR are mandatory, the metrics defined in
+      the SR and RR report blocks are always available. For XR metrics, it
+      depends on two factors: 1) if it measured at the endpoint, 2) if it
+      reported by the endpoint in an XR report. If a metric is only measured
+      by the endpoint and not reported, the metrics will only be available for
+      the incoming (remote) media stream. Alternatively, if the corresponding
+      metric is also reported in an XR report, it will be available for both
+      the incoming (remote) and outgoing (local) media stream.
     </t>
 
-    <section anchor="stats-registry" title="WebRTC RTP Statistics Registry">
-      <t>
-        IANA SHALL create a new namespace for "WebRTC RTP Statistics" under
-        XRBLOCK registry. All maintenance: changes, or additions to the contents
-        of this namespace MUST be according to the "Specification Required
-        with Expert Review" registration policy as defined in <xref target="RFC5226" />.
-      </t>
-      <t>
-        A registration request MUST include the following information:
-        <list style="symbols">
-          <t>The name of the statistic to be registered. The length of variable names
-            should be of reasonable length and be in camelCase.</t>
-          <t>The definition of the statistic to be registered. Instead of re-defining
-            already-defined metrics, the description MUST refer to the specification.
-            Further, the statistic is considered well defined if it is accompanied by
-            a metric template, for example <xref target="RFC6390" />.</t>
-        </list>
-        Additionally, the registration request MUST contain the name and email of the
-        contact person, and the individual or organization that has change control over
-        the identifier.
-      </t>
-    </section>
-  </section>
-
-  <section anchor="stats-groups" title="Identifiers from Sender, Receiver, and Extended Report Blocks">
     <t>
-      This group of variables is well defined on a ReportGroup corresponding
-      to an SSRC. For a remote statistic, the timestamp represents the
-      timestamp from an incoming SR/RR packet. Conversely, for a local statistic,
-      it refers to the current timestamp generated by the local clock (remembering
-      that it is represented as milliseconds since Jan 1, 1970).
-      The octets metrics measure the payload size (i.e., not including header
-      or padding).
+      For a remote statistic, the timestamp represents the timestamp from an
+      incoming SR/RR/XR packet. Conversely, for a local statistic, it refers to
+      the current timestamp generated by the local clock (typically the
+      POSIX timestamp, i.e., milliseconds since Jan 1, 1970).
+    </t>
+
+    <t>
+      As per <xref target="RFC3550" />, the octets metrics represent the payload
+      size (i.e., not including header or padding).
     </t>
 
     <section title="Cumulative Number of Packets and Octets Sent">
@@ -625,7 +603,7 @@ F38   The browser must be able to collect statistics, related to the
       <t>Definition: section 6.4.1 in <xref target="RFC3550" />.</t>
     </section>
 
-    <section title="Interval Fraction Packets Lost and Jitter">
+    <section title="Interval Packet Loss and Jitter">
       <!-- ######## -->
       <t>Name: jitter</t>
       <t>Definition: section 6.4.1 in <xref target="RFC3550" />.</t>
@@ -743,15 +721,18 @@ F38   The browser must be able to collect statistics, related to the
 
   </section>
 
+  <section anchor="add-stats" title="IANA Considerations">
+      <t>
+        This document requests IANA to create a new namespace for
+        "RTP Metrics Registry for the WebRTC Statistics API". All
+        maintenance: changes, or additions to the contents
+        of this namespace MUST be according to the "Specification Required
+        with Expert Review" registration policy as defined in <xref
+        target="RFC5226" />. Initially, the registry contains the identifiers
+        defined in <xref target="stats-groups"></xref>.
+      </t>
 
-  <section anchor="IANA" title="IANA Considerations">
-    <t>
-      This document requests IANA to create a registry described in <xref
-      target="add-stats" />, and to add all the identifiers
-      defined in <xref target="stats-groups"></xref>.
-    </t>
-
-    <t>
+       <t>
       The following contact information is used for all registrations in
       this document, and change control rests with the IETF.
 <figure>
@@ -761,7 +742,20 @@ F38   The browser must be able to collect statistics, related to the
 ]]></artwork>
 </figure></t>
 
-    <!-- <t></t> -->
+      <t>
+        A registration request MUST include the following information:
+        <list style="symbols">
+          <t>The name of the statistic to be registered. The length of variable names
+            should be of reasonable length and be in camelCase.</t>
+          <t>The definition of the statistic to be registered. Instead of re-defining
+            already-defined metrics, the description MUST refer to the specification.
+            Further, the statistic is considered well defined if it is accompanied by
+            a metric template, for example <xref target="RFC6390" />.</t>
+        </list>
+        Additionally, the registration request MUST contain the name and email of the
+        contact person, and the individual or organization that has change control over
+        the identifier.
+      </t>
   </section>
 
   <section anchor="Security" title="Security Considerations">

@@ -390,24 +390,22 @@
 <link href="#rfc.section.5.3" rel="Chapter" title="5.3 Recovery metrics"/>
 <link href="#rfc.section.5.3.1" rel="Chapter" title="5.3.1 Post-repair Packet Count Metrics"/>
 <link href="#rfc.section.5.3.2" rel="Chapter" title="5.3.2 Run Length Encoded Metric for Post-repair"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 WebRTC RTP Metrics Registry for the Statistics API"/>
-<link href="#rfc.section.6.1" rel="Chapter" title="6.1 WebRTC RTP Statistics Registry"/>
-<link href="#rfc.section.7" rel="Chapter" title="7 Identifiers from Sender, Receiver, and Extended Report Blocks"/>
-<link href="#rfc.section.7.1" rel="Chapter" title="7.1 Cumulative Number of Packets and Octets Sent"/>
-<link href="#rfc.section.7.2" rel="Chapter" title="7.2 Cumulative Number of Packets and Octets Received"/>
-<link href="#rfc.section.7.3" rel="Chapter" title="7.3 Cumulative Number of Packets Lost"/>
-<link href="#rfc.section.7.4" rel="Chapter" title="7.4 Interval Fraction Packets Lost and Jitter"/>
-<link href="#rfc.section.7.5" rel="Chapter" title="7.5 Cumulative Number of Packets and Octets Discarded"/>
-<link href="#rfc.section.7.6" rel="Chapter" title="7.6 Cumulative Number of Packets Repaired"/>
-<link href="#rfc.section.7.7" rel="Chapter" title="7.7 Burst Packet Loss and Burst Discards"/>
-<link href="#rfc.section.7.8" rel="Chapter" title="7.8 Burst/Gap Rates"/>
-<link href="#rfc.section.7.9" rel="Chapter" title="7.9 Frame Impairment Metrics"/>
-<link href="#rfc.section.8" rel="Chapter" title="8 IANA Considerations"/>
-<link href="#rfc.section.9" rel="Chapter" title="9 Security Considerations"/>
-<link href="#rfc.section.10" rel="Chapter" title="10 Acknowledgements"/>
-<link href="#rfc.references" rel="Chapter" title="11 References"/>
-<link href="#rfc.references.1" rel="Chapter" title="11.1 Normative References"/>
-<link href="#rfc.references.2" rel="Chapter" title="11.2 Informative References"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Identifiers from Sender, Receiver, and Extended Report Blocks"/>
+<link href="#rfc.section.6.1" rel="Chapter" title="6.1 Cumulative Number of Packets and Octets Sent"/>
+<link href="#rfc.section.6.2" rel="Chapter" title="6.2 Cumulative Number of Packets and Octets Received"/>
+<link href="#rfc.section.6.3" rel="Chapter" title="6.3 Cumulative Number of Packets Lost"/>
+<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Interval Packet Loss and Jitter"/>
+<link href="#rfc.section.6.5" rel="Chapter" title="6.5 Cumulative Number of Packets and Octets Discarded"/>
+<link href="#rfc.section.6.6" rel="Chapter" title="6.6 Cumulative Number of Packets Repaired"/>
+<link href="#rfc.section.6.7" rel="Chapter" title="6.7 Burst Packet Loss and Burst Discards"/>
+<link href="#rfc.section.6.8" rel="Chapter" title="6.8 Burst/Gap Rates"/>
+<link href="#rfc.section.6.9" rel="Chapter" title="6.9 Frame Impairment Metrics"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations"/>
+<link href="#rfc.section.8" rel="Chapter" title="8 Security Considerations"/>
+<link href="#rfc.section.9" rel="Chapter" title="9 Acknowledgements"/>
+<link href="#rfc.references" rel="Chapter" title="10 References"/>
+<link href="#rfc.references.1" rel="Chapter" title="10.1 Normative References"/>
+<link href="#rfc.references.2" rel="Chapter" title="10.2 Informative References"/>
 <link href="#rfc.appendix.A" rel="Chapter" title="A Change Log"/>
 <link href="#rfc.appendix.A.1" rel="Chapter" title="A.1 changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-01"/>
 <link href="#rfc.appendix.A.2" rel="Chapter" title="A.2 changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-00"/>
@@ -420,9 +418,9 @@
 
   <meta name="dct.creator" content="Singh, V., Huang, R., Even, R., Romascanu, D., and L. Deng" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-01" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-2-26" />
-  <meta name="dct.abstract" content="This document describes monitoring features related to RTCWEB.  It provides a list of RTCP XR metrics, which are useful and may need to be supported in some RTCWEB implementations.  It also describes a list of additional identifiers for WebRTC's statistics API. These identifiers are a set of RTCP XR metrics related to the transport of multimedia flows.  " />
-  <meta name="description" content="This document describes monitoring features related to RTCWEB.  It provides a list of RTCP XR metrics, which are useful and may need to be supported in some RTCWEB implementations.  It also describes a list of additional identifiers for WebRTC's statistics API. These identifiers are a set of RTCP XR metrics related to the transport of multimedia flows.  " />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-2-27" />
+  <meta name="dct.abstract" content="This document describes monitoring features related to media streams in Web real-time communication (WebRTC).  It provides a list of RTCP Sender Report, Receiver Report and Extended Report metrics, which may need to be supported by RTP implementations in some diverse environments. It also defines a new IANA registry, a list of identifiers for the WebRTC's statistics API.  These identifiers are a set of RTCP SR, RR, and XR metrics related to the transport of multimedia flows.  " />
+  <meta name="description" content="This document describes monitoring features related to media streams in Web real-time communication (WebRTC).  It provides a list of RTCP Sender Report, Receiver Report and Extended Report metrics, which may need to be supported by RTP implementations in some diverse environments. It also defines a new IANA registry, a list of identifiers for the WebRTC's statistics API.  These identifiers are a set of RTCP SR, RR, and XR metrics related to the transport of multimedia flows.  " />
 
 </head>
 
@@ -444,7 +442,7 @@
   <td class="right">R. Huang</td>
 </tr>
 <tr>
-  <td class="left">Expires: August 30, 2015</td>
+  <td class="left">Expires: August 31, 2015</td>
   <td class="right">R. Even</td>
 </tr>
 <tr>
@@ -469,7 +467,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">February 26, 2015</td>
+  <td class="right">February 27, 2015</td>
 </tr>
 
     	
@@ -482,14 +480,14 @@
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document describes monitoring features related to RTCWEB.  It provides a list of RTCP XR metrics, which are useful and may need to be supported in some RTCWEB implementations.  It also describes a list of additional identifiers for WebRTC's statistics API. These identifiers are a set of RTCP XR metrics related to the transport of multimedia flows.  </p>
+<p>This document describes monitoring features related to media streams in Web real-time communication (WebRTC).  It provides a list of RTCP Sender Report, Receiver Report and Extended Report metrics, which may need to be supported by RTP implementations in some diverse environments. It also defines a new IANA registry, a list of identifiers for the WebRTC's statistics API.  These identifiers are a set of RTCP SR, RR, and XR metrics related to the transport of multimedia flows.  </p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 30, 2015.</p>
+<p>This Internet-Draft will expire on August 31, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -517,24 +515,22 @@
 <li>5.3.   <a href="#rfc.section.5.3">Recovery metrics</a></li>
 <li>5.3.1.   <a href="#rfc.section.5.3.1">Post-repair Packet Count Metrics</a></li>
 <li>5.3.2.   <a href="#rfc.section.5.3.2">Run Length Encoded Metric for Post-repair</a></li>
-<li>6.   <a href="#rfc.section.6">WebRTC RTP Metrics Registry for the Statistics API</a></li>
-<li>6.1.   <a href="#rfc.section.6.1">WebRTC RTP Statistics Registry</a></li>
-<li>7.   <a href="#rfc.section.7">Identifiers from Sender, Receiver, and Extended Report Blocks</a></li>
-<li>7.1.   <a href="#rfc.section.7.1">Cumulative Number of Packets and Octets Sent</a></li>
-<li>7.2.   <a href="#rfc.section.7.2">Cumulative Number of Packets and Octets Received</a></li>
-<li>7.3.   <a href="#rfc.section.7.3">Cumulative Number of Packets Lost</a></li>
-<li>7.4.   <a href="#rfc.section.7.4">Interval Fraction Packets Lost and Jitter</a></li>
-<li>7.5.   <a href="#rfc.section.7.5">Cumulative Number of Packets and Octets Discarded</a></li>
-<li>7.6.   <a href="#rfc.section.7.6">Cumulative Number of Packets Repaired</a></li>
-<li>7.7.   <a href="#rfc.section.7.7">Burst Packet Loss and Burst Discards</a></li>
-<li>7.8.   <a href="#rfc.section.7.8">Burst/Gap Rates</a></li>
-<li>7.9.   <a href="#rfc.section.7.9">Frame Impairment Metrics</a></li>
-<li>8.   <a href="#rfc.section.8">IANA Considerations</a></li>
-<li>9.   <a href="#rfc.section.9">Security Considerations</a></li>
-<li>10.   <a href="#rfc.section.10">Acknowledgements</a></li>
-<li>11.   <a href="#rfc.references">References</a></li>
-<li>11.1.   <a href="#rfc.references.1">Normative References</a></li>
-<li>11.2.   <a href="#rfc.references.2">Informative References</a></li>
+<li>6.   <a href="#rfc.section.6">Identifiers from Sender, Receiver, and Extended Report Blocks</a></li>
+<li>6.1.   <a href="#rfc.section.6.1">Cumulative Number of Packets and Octets Sent</a></li>
+<li>6.2.   <a href="#rfc.section.6.2">Cumulative Number of Packets and Octets Received</a></li>
+<li>6.3.   <a href="#rfc.section.6.3">Cumulative Number of Packets Lost</a></li>
+<li>6.4.   <a href="#rfc.section.6.4">Interval Packet Loss and Jitter</a></li>
+<li>6.5.   <a href="#rfc.section.6.5">Cumulative Number of Packets and Octets Discarded</a></li>
+<li>6.6.   <a href="#rfc.section.6.6">Cumulative Number of Packets Repaired</a></li>
+<li>6.7.   <a href="#rfc.section.6.7">Burst Packet Loss and Burst Discards</a></li>
+<li>6.8.   <a href="#rfc.section.6.8">Burst/Gap Rates</a></li>
+<li>6.9.   <a href="#rfc.section.6.9">Frame Impairment Metrics</a></li>
+<li>7.   <a href="#rfc.section.7">IANA Considerations</a></li>
+<li>8.   <a href="#rfc.section.8">Security Considerations</a></li>
+<li>9.   <a href="#rfc.section.9">Acknowledgements</a></li>
+<li>10.   <a href="#rfc.references">References</a></li>
+<li>10.1.   <a href="#rfc.references.1">Normative References</a></li>
+<li>10.2.   <a href="#rfc.references.2">Informative References</a></li>
 <li>Appendix A.   <a href="#rfc.appendix.A">Change Log</a></li>
 <li>A.1.   <a href="#rfc.appendix.A.1">changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-01</a></li>
 <li>A.2.   <a href="#rfc.appendix.A.2">changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-00</a></li>
@@ -545,7 +541,7 @@
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> Introduction</h1>
-<p id="rfc.section.1.p.1">Web-based real-time communication (WebRTC) deployments are emerging and applications need to be able to estimate the service quality. If sufficient information (metrics or statistics) are provided to the applications, it can attempt to improve the media quality. <a href="#I-D.ietf-rtcweb-use-cases-and-requirements">[I-D.ietf-rtcweb-use-cases-and-requirements]</a> specifies a requirement for statistics: </p>
+<p id="rfc.section.1.p.1">Web real-time communication (WebRTC) deployments are emerging and applications need to be able to estimate the service quality. If sufficient information (metrics or statistics) are provided to the applications, it can attempt to improve the media quality. <a href="#I-D.ietf-rtcweb-use-cases-and-requirements">[I-D.ietf-rtcweb-use-cases-and-requirements]</a> specifies a requirement for statistics: </p>
 <pre>
 F38   The browser must be able to collect statistics, related to the
       transport of audio and video between peers, needed to estimate
@@ -558,7 +554,7 @@ F38   The browser must be able to collect statistics, related to the
 <p id="rfc.section.2.p.2">ReportGroup: It is a set of metrics identified by a common Synchronization source (SSRC).  </p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#rtp-stats" id="rtp-stats">RTP Statistics in WebRTC Implementations</a></h1>
 <p id="rfc.section.3.p.1">The <a href="#RFC3550">RTCP Sender Reports (SRs) and Receiver Reports (RRs)</a> <cite title="NONE">[RFC3550]</cite> exposes the basic metrics for the local and remote media streams. However, these metrics provides only partial or limited information, which may not be sufficient for diagnosing problems or quality monitoring. For example, it may be useful to distinguish between packets lost and packets discarded due to late arrival, even though they have the same impact on the multimedia quality, it helps in identifying and diagnosing issues.  </p>
-<p><a href="#RFC3611">RTP Control Protocol Extended Reports (XRs)</a> <cite title="NONE">[RFC3611]</cite> and other extensions discussed in the XRBLOCK working group provide more detailed statistics, which complement the basic metrics reported in the RTCP SR and RRs. Section <a href="#cand-metrics">Section 5</a> discusses the use of XR metrics that may be useful for monitoring the performance of WebRTC applications. Sections <a href="#add-stats">Section 6</a> and <a href="#stats-groups">Section 7</a> create a new IANA registry and populate it with initial candidate metrics.  </p>
+<p><a href="#RFC3611">RTP Control Protocol Extended Reports (XRs)</a> <cite title="NONE">[RFC3611]</cite> and other extensions discussed in the XRBLOCK working group provide more detailed statistics, which complement the basic metrics reported in the RTCP SR and RRs. Section <a href="#cand-metrics">Section 5</a> discusses the use of XR metrics that may be useful for monitoring the performance of WebRTC applications. Sections <a href="#add-stats">Section 7</a> and <a href="#stats-groups">Section 6</a> create a new IANA registry and populate it with initial candidate metrics.  </p>
 <p id="rfc.section.3.p.3">The WebRTC application extracts the statistic from the browser by querying the <a href="#W3C.WD-webrtc-20150210">getStats() API</a> <cite title="NONE">[W3C.WD-webrtc-20150210]</cite>, but the browser currently only reports the local variables i.e., the statistics related to the outgoing RTP media streams and the incoming RTP media streams.  Without the support of RTCP XRs or some other signaling mechianism, the WebRTC application cannot expose the remote endpoints' statistics.  At the moment <a href="#I-D.ietf-rtcweb-rtp-usage">[I-D.ietf-rtcweb-rtp-usage]</a> does not mandate the use of any RTCP XRs and since their usage is optional. If the use of RTCP XRs is successfully negotiated between endpoints (via SDP), thereafter the application has access to both local and remote statistics.  Alternatively, once the WebRTC application gets the local information, they can report it to an application server or a third-party monitoring system, which provides quality estimations or diagnosis services for application developers. The exchange of statistics between endpoints or between a monitoring server and an endpoint is outside the scope of this document.  </p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#mm-int" id="mm-int">Considerations for Impact of Measurement Interval</a></h1>
 <p id="rfc.section.4.p.1">RTCP extensions like RTCP XR usually share the same timing interval with the RTCP SR/RR, i.e., they are sent as compound packets, together with the RTCP SR/RR. Alternatively, if the RTCP XR uses a different measurement interval, all XRs using the same measurement interval are compounded together and the measurement interval is indicated in a specific measurement information block defined in <a href="#RFC6776">[RFC6776]</a>.  </p>
@@ -596,11 +592,74 @@ F38   The browser must be able to collect statistics, related to the
 <h1 id="rfc.section.5.3.2"><a href="#rfc.section.5.3.2">5.3.2.</a> <a href="#rle-prl" id="rle-prl">Run Length Encoded Metric for Post-repair</a></h1>
 <p><a href="#RFC5725">[RFC5725]</a> defines run-length encoding for post-repair packets.  When using error-resilience mechanisms, the endpoint can correlate the loss run length with this metric to ascertain where the losses and repairs occurred in the interval. This provides more accurate information for recovery mechanisms evaluation than those in Section 5.3.1. However, it is not suggested to use due to their enormous amount of data when RTCP XR are supported.  </p>
 <p id="rfc.section.5.3.2.p.2">For WebRTC, the application may benefit from the additional information.  If losses occur after discards, an endpoint may be able to correlate the two run length vectors to identify congestion-related losses, i.e., a router queue  became overloaded causing delays and then overflowed. If the losses are independent, it may indicate bit-error corruption. Lastly, when using error-resilience mechanisms, the endpoint can correlate the loss and post-repair run lengths to ascertain where the losses and repairs occurred in the interval. For example, consecutive losses are likely not to be repaired by a simple FEC scheme.  </p>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#add-stats" id="add-stats">WebRTC RTP Metrics Registry for the Statistics API</a></h1>
-<p id="rfc.section.6.p.1">This document describes a list of metrics and corresponding identifiers relevant to RTP media in Web-based Real-time Communication (WebRTC).  These group of identifiers are defined on a ReportGroup corresponding to an Synchronization source (SSRC). In practice the application MUST be able to query the statistic identifiers on both an incoming (remote) and outgoing (local) media stream. Since sending and receiving SR and RR are mandatory, the metrics defined in the SR and RR report blocks are always available. For XR metrics, it depends on two factors: 1) if it measured at the endpoint, 2) if it reported by the endpoint in an XR report. If a metric is only measured by the endpoint and not reported, the metrics will be only available for the incoming (remote) media stream.  Additionally, if the corresponding metric is also reported in an XR block, it will be available for both the incoming (remote) and outgoing (local) media stream.  </p>
-<h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> <a href="#stats-registry" id="stats-registry">WebRTC RTP Statistics Registry</a></h1>
-<p id="rfc.section.6.1.p.1">IANA SHALL create a new namespace for "WebRTC RTP Statistics" under XRBLOCK registry. All maintenance: changes, or additions to the contents of this namespace MUST be according to the "Specification Required with Expert Review" registration policy as defined in <a href="#RFC5226">[RFC5226]</a>.  </p>
-<p id="rfc.section.6.1.p.2">A registration request MUST include the following information: </p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#stats-groups" id="stats-groups">Identifiers from Sender, Receiver, and Extended Report Blocks</a></h1>
+<p id="rfc.section.6.p.1">This document describes a list of metrics and corresponding identifiers relevant to RTP media in WebRTC. These group of identifiers are defined on a ReportGroup corresponding to an Synchronization source (SSRC). In practice the application MUST be able to query the statistic identifiers on both an incoming (remote) and outgoing (local) media stream. Since sending and receiving SR and RR are mandatory, the metrics defined in the SR and RR report blocks are always available. For XR metrics, it depends on two factors: 1) if it measured at the endpoint, 2) if it reported by the endpoint in an XR report. If a metric is only measured by the endpoint and not reported, the metrics will only be available for the incoming (remote) media stream. Alternatively, if the corresponding metric is also reported in an XR report, it will be available for both the incoming (remote) and outgoing (local) media stream.  </p>
+<p id="rfc.section.6.p.2">For a remote statistic, the timestamp represents the timestamp from an incoming SR/RR/XR packet. Conversely, for a local statistic, it refers to the current timestamp generated by the local clock (typically the POSIX timestamp, i.e., milliseconds since Jan 1, 1970).  </p>
+<p id="rfc.section.6.p.3">As per <a href="#RFC3550">[RFC3550]</a>, the octets metrics represent the payload size (i.e., not including header or padding).  </p>
+<h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> Cumulative Number of Packets and Octets Sent</h1>
+<p id="rfc.section.6.1.p.1">Name: packetsSent</p>
+<p id="rfc.section.6.1.p.2">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
+<p id="rfc.section.6.1.p.3">Name: bytesSent</p>
+<p id="rfc.section.6.1.p.4">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
+<h1 id="rfc.section.6.2"><a href="#rfc.section.6.2">6.2.</a> Cumulative Number of Packets and Octets Received</h1>
+<p id="rfc.section.6.2.p.1">Name: packetsReceived</p>
+<p id="rfc.section.6.2.p.2">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
+<p id="rfc.section.6.2.p.3">Name: bytesReceived</p>
+<p id="rfc.section.6.2.p.4">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
+<h1 id="rfc.section.6.3"><a href="#rfc.section.6.3">6.3.</a> Cumulative Number of Packets Lost</h1>
+<p id="rfc.section.6.3.p.1">Name: packetsLost</p>
+<p id="rfc.section.6.3.p.2">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
+<h1 id="rfc.section.6.4"><a href="#rfc.section.6.4">6.4.</a> Interval Packet Loss and Jitter</h1>
+<p id="rfc.section.6.4.p.1">Name: jitter</p>
+<p id="rfc.section.6.4.p.2">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
+<p id="rfc.section.6.4.p.3">Name: fractionLost</p>
+<p id="rfc.section.6.4.p.4">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
+<h1 id="rfc.section.6.5"><a href="#rfc.section.6.5">6.5.</a> Cumulative Number of Packets and Octets Discarded</h1>
+<p id="rfc.section.6.5.p.1">Name: packetsDiscarded</p>
+<p id="rfc.section.6.5.p.2">Definition: The cumulative number of RTP packets discarded due to late or early-arrival, Appendix A (a) of <a href="#RFC7002">[RFC7002]</a>.</p>
+<p id="rfc.section.6.5.p.3">Name: bytesDiscarded</p>
+<p id="rfc.section.6.5.p.4">Definition: The cumulative number of octets discarded due to late or early-arrival, Appendix A of <a href="#RFC7243">[RFC7243]</a>.</p>
+<h1 id="rfc.section.6.6"><a href="#rfc.section.6.6">6.6.</a> Cumulative Number of Packets Repaired</h1>
+<p id="rfc.section.6.6.p.1">Name: packetsRepaired</p>
+<p id="rfc.section.6.6.p.2">Definition: The cumulative number of lost RTP packets repaired after applying a error-resilience mechanism, Appendix A (b) of <a href="#I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count">[I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count]</a>. To clarify, the value is upper bound to the cumulative number of lost packets.</p>
+<h1 id="rfc.section.6.7"><a href="#rfc.section.6.7">6.7.</a> Burst Packet Loss and Burst Discards</h1>
+<p id="rfc.section.6.7.p.1">Name: burstLoss</p>
+<p id="rfc.section.6.7.p.2">Definition: The cumulative number of RTP packets lost during loss bursts, Appendix A (c) of <a href="#RFC6958">[RFC6958]</a>.</p>
+<p id="rfc.section.6.7.p.3">Name: burstLossCount</p>
+<p id="rfc.section.6.7.p.4">Definition: The cumulative number of bursts of lost RTP packets, Appendix A (e) of <a href="#RFC6958">[RFC6958]</a>.</p>
+<p id="rfc.section.6.7.p.5">Name: burstDiscardRate</p>
+<p id="rfc.section.6.7.p.6">Definition: The cumulative number of RTP packets discarded during discard bursts, Appendix A (b) of <a href="#RFC7003">[RFC7003]</a>.</p>
+<p id="rfc.section.6.7.p.7">Name: burstDiscardCount</p>
+<p id="rfc.section.6.7.p.8">Definition: The cumulative number of bursts of discarded RTP packets, Appendix A (e) of  <a href="#RFC6958">[RFC6958]</a>.</p>
+<p><a href="#RFC3611">[RFC3611]</a> recommends a Gmin (threshold) value of 16 for classifying packet loss or discard burst.</p>
+<h1 id="rfc.section.6.8"><a href="#rfc.section.6.8">6.8.</a> Burst/Gap Rates</h1>
+<p id="rfc.section.6.8.p.1">Name: burstLossRate</p>
+<p id="rfc.section.6.8.p.2">Definition: The fraction of RTP packets lost during bursts, Appendix A (a) of <a href="#RFC7004">[RFC7004]</a>.</p>
+<p id="rfc.section.6.8.p.3">Name: gapLossRate</p>
+<p id="rfc.section.6.8.p.4">Definition: The fraction of RTP packets lost during gaps, Appendix A (b) of <a href="#RFC7004">[RFC7004]</a>.</p>
+<p id="rfc.section.6.8.p.5">Name: burstDiscardRate</p>
+<p id="rfc.section.6.8.p.6">Definition: The fraction of RTP packets discarded during bursts, Appendix A (e) of <a href="#RFC7004">[RFC7004]</a>.</p>
+<p id="rfc.section.6.8.p.7">Name: gapDiscardRate</p>
+<p id="rfc.section.6.8.p.8">Definition: The fraction of RTP packets discarded during gaps, Appendix A (f) of <a href="#RFC7004">[RFC7004]</a>.</p>
+<h1 id="rfc.section.6.9"><a href="#rfc.section.6.9">6.9.</a> Frame Impairment Metrics</h1>
+<p id="rfc.section.6.9.p.1">Name: framesLost</p>
+<p id="rfc.section.6.9.p.2">Definition: The cumulative number of full frames lost, Appendix A (i) of <a href="#RFC7004">[RFC7004]</a>.</p>
+<p id="rfc.section.6.9.p.3">Name: framesCorrupted</p>
+<p id="rfc.section.6.9.p.4">Definition: The cumulative number of frames partially lost, Appendix A (j) of <a href="#RFC7004">[RFC7004]</a>.</p>
+<p id="rfc.section.6.9.p.5">Name: framesDropped</p>
+<p id="rfc.section.6.9.p.6">Definition: The cumulative number of full frames discarded, Appendix A (g) of <a href="#RFC7004">[RFC7004]</a>.</p>
+<p id="rfc.section.6.9.p.7">Name: framesSent</p>
+<p id="rfc.section.6.9.p.8">Definition: The cumulative number of frames sent.</p>
+<p id="rfc.section.6.9.p.9">Name: framesReceived</p>
+<p id="rfc.section.6.9.p.10">Definition: The cumulative number of partial or full frames received.</p>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#add-stats" id="add-stats">IANA Considerations</a></h1>
+<p id="rfc.section.7.p.1">This document requests IANA to create a new namespace for "RTP Metrics Registry for the WebRTC Statistics API". All maintenance: changes, or additions to the contents of this namespace MUST be according to the "Specification Required with Expert Review" registration policy as defined in <a href="#RFC5226">[RFC5226]</a>. Initially, the registry contains the identifiers defined in <a href="#stats-groups">Section 6</a>.  </p>
+<pre>
+    Contact:    Varun Singh
+                mailto:varun.singh@iki.fi
+</pre>
+<p id="rfc.section.7.p.2">The following contact information is used for all registrations in this document, and change control rests with the IETF.  </p>
+<p id="rfc.section.7.p.3">A registration request MUST include the following information: </p>
 
 <ul>
   <li>The name of the statistic to be registered. The length of variable names should be of reasonable length and be in camelCase.</li>
@@ -608,78 +667,13 @@ F38   The browser must be able to collect statistics, related to the
 </ul>
 
 <p> Additionally, the registration request MUST contain the name and email of the contact person, and the individual or organization that has change control over the identifier.  </p>
-<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#stats-groups" id="stats-groups">Identifiers from Sender, Receiver, and Extended Report Blocks</a></h1>
-<p id="rfc.section.7.p.1">This group of variables is well defined on a ReportGroup corresponding to an SSRC. For a remote statistic, the timestamp represents the timestamp from an incoming SR/RR packet. Conversely, for a local statistic, it refers to the current timestamp generated by the local clock (remembering that it is represented as milliseconds since Jan 1, 1970).  The octets metrics measure the payload size (i.e., not including header or padding).  </p>
-<h1 id="rfc.section.7.1"><a href="#rfc.section.7.1">7.1.</a> Cumulative Number of Packets and Octets Sent</h1>
-<p id="rfc.section.7.1.p.1">Name: packetsSent</p>
-<p id="rfc.section.7.1.p.2">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
-<p id="rfc.section.7.1.p.3">Name: bytesSent</p>
-<p id="rfc.section.7.1.p.4">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
-<h1 id="rfc.section.7.2"><a href="#rfc.section.7.2">7.2.</a> Cumulative Number of Packets and Octets Received</h1>
-<p id="rfc.section.7.2.p.1">Name: packetsReceived</p>
-<p id="rfc.section.7.2.p.2">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
-<p id="rfc.section.7.2.p.3">Name: bytesReceived</p>
-<p id="rfc.section.7.2.p.4">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
-<h1 id="rfc.section.7.3"><a href="#rfc.section.7.3">7.3.</a> Cumulative Number of Packets Lost</h1>
-<p id="rfc.section.7.3.p.1">Name: packetsLost</p>
-<p id="rfc.section.7.3.p.2">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
-<h1 id="rfc.section.7.4"><a href="#rfc.section.7.4">7.4.</a> Interval Fraction Packets Lost and Jitter</h1>
-<p id="rfc.section.7.4.p.1">Name: jitter</p>
-<p id="rfc.section.7.4.p.2">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
-<p id="rfc.section.7.4.p.3">Name: fractionLost</p>
-<p id="rfc.section.7.4.p.4">Definition: section 6.4.1 in <a href="#RFC3550">[RFC3550]</a>.</p>
-<h1 id="rfc.section.7.5"><a href="#rfc.section.7.5">7.5.</a> Cumulative Number of Packets and Octets Discarded</h1>
-<p id="rfc.section.7.5.p.1">Name: packetsDiscarded</p>
-<p id="rfc.section.7.5.p.2">Definition: The cumulative number of RTP packets discarded due to late or early-arrival, Appendix A (a) of <a href="#RFC7002">[RFC7002]</a>.</p>
-<p id="rfc.section.7.5.p.3">Name: bytesDiscarded</p>
-<p id="rfc.section.7.5.p.4">Definition: The cumulative number of octets discarded due to late or early-arrival, Appendix A of <a href="#RFC7243">[RFC7243]</a>.</p>
-<h1 id="rfc.section.7.6"><a href="#rfc.section.7.6">7.6.</a> Cumulative Number of Packets Repaired</h1>
-<p id="rfc.section.7.6.p.1">Name: packetsRepaired</p>
-<p id="rfc.section.7.6.p.2">Definition: The cumulative number of lost RTP packets repaired after applying a error-resilience mechanism, Appendix A (b) of <a href="#I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count">[I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count]</a>. To clarify, the value is upper bound to the cumulative number of lost packets.</p>
-<h1 id="rfc.section.7.7"><a href="#rfc.section.7.7">7.7.</a> Burst Packet Loss and Burst Discards</h1>
-<p id="rfc.section.7.7.p.1">Name: burstLoss</p>
-<p id="rfc.section.7.7.p.2">Definition: The cumulative number of RTP packets lost during loss bursts, Appendix A (c) of <a href="#RFC6958">[RFC6958]</a>.</p>
-<p id="rfc.section.7.7.p.3">Name: burstLossCount</p>
-<p id="rfc.section.7.7.p.4">Definition: The cumulative number of bursts of lost RTP packets, Appendix A (e) of <a href="#RFC6958">[RFC6958]</a>.</p>
-<p id="rfc.section.7.7.p.5">Name: burstDiscardRate</p>
-<p id="rfc.section.7.7.p.6">Definition: The cumulative number of RTP packets discarded during discard bursts, Appendix A (b) of <a href="#RFC7003">[RFC7003]</a>.</p>
-<p id="rfc.section.7.7.p.7">Name: burstDiscardCount</p>
-<p id="rfc.section.7.7.p.8">Definition: The cumulative number of bursts of discarded RTP packets, Appendix A (e) of  <a href="#RFC6958">[RFC6958]</a>.</p>
-<p><a href="#RFC3611">[RFC3611]</a> recommends a Gmin (threshold) value of 16 for classifying packet loss or discard burst.</p>
-<h1 id="rfc.section.7.8"><a href="#rfc.section.7.8">7.8.</a> Burst/Gap Rates</h1>
-<p id="rfc.section.7.8.p.1">Name: burstLossRate</p>
-<p id="rfc.section.7.8.p.2">Definition: The fraction of RTP packets lost during bursts, Appendix A (a) of <a href="#RFC7004">[RFC7004]</a>.</p>
-<p id="rfc.section.7.8.p.3">Name: gapLossRate</p>
-<p id="rfc.section.7.8.p.4">Definition: The fraction of RTP packets lost during gaps, Appendix A (b) of <a href="#RFC7004">[RFC7004]</a>.</p>
-<p id="rfc.section.7.8.p.5">Name: burstDiscardRate</p>
-<p id="rfc.section.7.8.p.6">Definition: The fraction of RTP packets discarded during bursts, Appendix A (e) of <a href="#RFC7004">[RFC7004]</a>.</p>
-<p id="rfc.section.7.8.p.7">Name: gapDiscardRate</p>
-<p id="rfc.section.7.8.p.8">Definition: The fraction of RTP packets discarded during gaps, Appendix A (f) of <a href="#RFC7004">[RFC7004]</a>.</p>
-<h1 id="rfc.section.7.9"><a href="#rfc.section.7.9">7.9.</a> Frame Impairment Metrics</h1>
-<p id="rfc.section.7.9.p.1">Name: framesLost</p>
-<p id="rfc.section.7.9.p.2">Definition: The cumulative number of full frames lost, Appendix A (i) of <a href="#RFC7004">[RFC7004]</a>.</p>
-<p id="rfc.section.7.9.p.3">Name: framesCorrupted</p>
-<p id="rfc.section.7.9.p.4">Definition: The cumulative number of frames partially lost, Appendix A (j) of <a href="#RFC7004">[RFC7004]</a>.</p>
-<p id="rfc.section.7.9.p.5">Name: framesDropped</p>
-<p id="rfc.section.7.9.p.6">Definition: The cumulative number of full frames discarded, Appendix A (g) of <a href="#RFC7004">[RFC7004]</a>.</p>
-<p id="rfc.section.7.9.p.7">Name: framesSent</p>
-<p id="rfc.section.7.9.p.8">Definition: The cumulative number of frames sent.</p>
-<p id="rfc.section.7.9.p.9">Name: framesReceived</p>
-<p id="rfc.section.7.9.p.10">Definition: The cumulative number of partial or full frames received.</p>
-<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
-<p id="rfc.section.8.p.1">This document requests IANA to create a registry described in <a href="#add-stats">Section 6</a>, and to add all the identifiers defined in <a href="#stats-groups">Section 7</a>.  </p>
-<pre>
-    Contact:    Varun Singh
-                mailto:varun.singh@iki.fi
-</pre>
-<p id="rfc.section.8.p.2">The following contact information is used for all registrations in this document, and change control rests with the IETF.  </p>
-<h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
-<p id="rfc.section.9.p.1">The monitoring activities are implemented between two browsers or between a browser and a server.  Therefore encryption procedures, such as the ones suggested for a Secure RTCP (SRTCP), need to be used. Currently, the monitoring in RTCWEB introduces no new security considerations beyond those described in <a href="#I-D.ietf-rtcweb-rtp-usage">[I-D.ietf-rtcweb-rtp-usage]</a>, <a href="#I-D.ietf-rtcweb-security">[I-D.ietf-rtcweb-security]</a>.  </p>
-<h1 id="rfc.section.10"><a href="#rfc.section.10">10.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
-<p id="rfc.section.10.p.1">The authors would like to thank Bernard Aboba, Al Morton, Colin Perkins, and Shida Schubert for their valuable comments and suggestions on earlier version of this document.  </p>
-<p id="rfc.section.10.p.2">The authors would also like to acknowledge the contributions of Harald Alvestrand (alvestrand-rtcweb-stats-registry), which inspired this work.  </p>
-<h1 id="rfc.references"><a href="#rfc.references">11.</a> References</h1>
-<h1 id="rfc.references.1"><a href="#rfc.references.1">11.1.</a> Normative References</h1>
+<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
+<p id="rfc.section.8.p.1">The monitoring activities are implemented between two browsers or between a browser and a server.  Therefore encryption procedures, such as the ones suggested for a Secure RTCP (SRTCP), need to be used. Currently, the monitoring in RTCWEB introduces no new security considerations beyond those described in <a href="#I-D.ietf-rtcweb-rtp-usage">[I-D.ietf-rtcweb-rtp-usage]</a>, <a href="#I-D.ietf-rtcweb-security">[I-D.ietf-rtcweb-security]</a>.  </p>
+<h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
+<p id="rfc.section.9.p.1">The authors would like to thank Bernard Aboba, Al Morton, Colin Perkins, and Shida Schubert for their valuable comments and suggestions on earlier version of this document.  </p>
+<p id="rfc.section.9.p.2">The authors would also like to acknowledge the contributions of Harald Alvestrand (alvestrand-rtcweb-stats-registry), which inspired this work.  </p>
+<h1 id="rfc.references"><a href="#rfc.references">10.</a> References</h1>
+<h1 id="rfc.references.1"><a href="#rfc.references.1">10.1.</a> Normative References</h1>
 <table>
   <tbody>
     <tr>
@@ -774,7 +768,7 @@ F38   The browser must be able to collect statistics, related to the
     </tr>
   </tbody>
 </table>
-<h1 id="rfc.references.2"><a href="#rfc.references.2">11.2.</a> Informative References</h1>
+<h1 id="rfc.references.2"><a href="#rfc.references.2">10.2.</a> Informative References</h1>
 <table>
   <tbody>
     <tr>
@@ -863,6 +857,8 @@ F38   The browser must be able to collect statistics, related to the
 	  <span class="country-name vcardline">Finland</span>
 	</span>
 	<span class="vcardline">EMail: <a href="mailto:varun@callstats.io">varun@callstats.io</a></span>
+
+<span class="vcardline">URI: <a href="http://www.callstats.io/">http://www.callstats.io/</a></span>
 
   </address>
 </div><div class="avoidbreak">

@@ -5,13 +5,13 @@
 XR Block Working Group                                          V. Singh
 Internet-Draft                                              callstats.io
 Intended status: Standards Track                                R. Huang
-Expires: August 30, 2015                                         R. Even
+Expires: August 31, 2015                                         R. Even
                                                                   Huawei
                                                             D. Romascanu
                                                                    Avaya
                                                                  L. Deng
                                                             China Mobile
-                                                       February 26, 2015
+                                                       February 27, 2015
 
 
  Considerations for Selecting RTCP Extended Report (XR) Metrics for the
@@ -20,11 +20,13 @@ Expires: August 30, 2015                                         R. Even
 
 Abstract
 
-   This document describes monitoring features related to RTCWEB.  It
-   provides a list of RTCP XR metrics, which are useful and may need to
-   be supported in some RTCWEB implementations.  It also describes a
-   list of additional identifiers for WebRTC's statistics API.  These
-   identifiers are a set of RTCP XR metrics related to the transport of
+   This document describes monitoring features related to media streams
+   in Web real-time communication (WebRTC).  It provides a list of RTCP
+   Sender Report, Receiver Report and Extended Report metrics, which may
+   need to be supported by RTP implementations in some diverse
+   environments.  It also defines a new IANA registry, a list of
+   identifiers for the WebRTC's statistics API.  These identifiers are a
+   set of RTCP SR, RR, and XR metrics related to the transport of
    multimedia flows.
 
 Status of This Memo
@@ -42,21 +44,24 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 30, 2015.
+   This Internet-Draft will expire on August 31, 2015.
+
+
+
+
+
+
+
+
+Singh, et al.            Expires August 31, 2015                [Page 1]
+
+Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
+
 
 Copyright Notice
 
    Copyright (c) 2015 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
-
-
-
-
-
-Singh, et al.            Expires August 30, 2015                [Page 1]
-
-Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
-
 
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents
@@ -86,42 +91,40 @@ Table of Contents
      5.3.  Recovery metrics  . . . . . . . . . . . . . . . . . . . .   9
        5.3.1.  Post-repair Packet Count Metrics  . . . . . . . . . .   9
        5.3.2.  Run Length Encoded Metric for Post-repair . . . . . .   9
-   6.  WebRTC RTP Metrics Registry for the Statistics API  . . . . .  10
-     6.1.  WebRTC RTP Statistics Registry  . . . . . . . . . . . . .  10
-   7.  Identifiers from Sender, Receiver, and Extended Report Blocks  10
-     7.1.  Cumulative Number of Packets and Octets Sent  . . . . . .  11
-     7.2.  Cumulative Number of Packets and Octets Received  . . . .  11
-     7.3.  Cumulative Number of Packets Lost . . . . . . . . . . . .  11
-     7.4.  Interval Fraction Packets Lost and Jitter . . . . . . . .  11
-     7.5.  Cumulative Number of Packets and Octets Discarded . . . .  11
-     7.6.  Cumulative Number of Packets Repaired . . . . . . . . . .  12
-     7.7.  Burst Packet Loss and Burst Discards  . . . . . . . . . .  12
-     7.8.  Burst/Gap Rates . . . . . . . . . . . . . . . . . . . . .  12
-     7.9.  Frame Impairment Metrics  . . . . . . . . . . . . . . . .  13
-   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  13
-   9.  Security Considerations . . . . . . . . . . . . . . . . . . .  14
-   10. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  14
-   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  14
-     11.1.  Normative References . . . . . . . . . . . . . . . . . .  14
-     11.2.  Informative References . . . . . . . . . . . . . . . . .  15
-   Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  16
-     A.1.  changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-01 .  16
+   6.  Identifiers from Sender, Receiver, and Extended Report Blocks  10
+     6.1.  Cumulative Number of Packets and Octets Sent  . . . . . .  10
+     6.2.  Cumulative Number of Packets and Octets Received  . . . .  10
+     6.3.  Cumulative Number of Packets Lost . . . . . . . . . . . .  11
+     6.4.  Interval Packet Loss and Jitter . . . . . . . . . . . . .  11
+     6.5.  Cumulative Number of Packets and Octets Discarded . . . .  11
+     6.6.  Cumulative Number of Packets Repaired . . . . . . . . . .  11
+     6.7.  Burst Packet Loss and Burst Discards  . . . . . . . . . .  11
+     6.8.  Burst/Gap Rates . . . . . . . . . . . . . . . . . . . . .  12
+     6.9.  Frame Impairment Metrics  . . . . . . . . . . . . . . . .  12
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  13
+   8.  Security Considerations . . . . . . . . . . . . . . . . . . .  13
+   9.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  14
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  14
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .  14
 
 
 
-Singh, et al.            Expires August 30, 2015                [Page 2]
+Singh, et al.            Expires August 31, 2015                [Page 2]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
-     A.2.  changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-00 .  17
-     A.3.  changes in draft-huang-xrblock-rtcweb-rtcp-xr-metrics-04   17
+     10.2.  Informative References . . . . . . . . . . . . . . . . .  15
+   Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  16
+     A.1.  changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-01 .  16
+     A.2.  changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-00 .  16
+     A.3.  changes in draft-huang-xrblock-rtcweb-rtcp-xr-metrics-04   16
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  17
 
 1.  Introduction
 
-   Web-based real-time communication (WebRTC) deployments are emerging
-   and applications need to be able to estimate the service quality.  If
+   Web real-time communication (WebRTC) deployments are emerging and
+   applications need to be able to estimate the service quality.  If
    sufficient information (metrics or statistics) are provided to the
    applications, it can attempt to improve the media quality.
    [I-D.ietf-rtcweb-use-cases-and-requirements] specifies a requirement
@@ -158,24 +161,24 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
    which may not be sufficient for diagnosing problems or quality
    monitoring.  For example, it may be useful to distinguish between
    packets lost and packets discarded due to late arrival, even though
-   they have the same impact on the multimedia quality, it helps in
-   identifying and diagnosing issues.
 
 
 
 
-
-Singh, et al.            Expires August 30, 2015                [Page 3]
+Singh, et al.            Expires August 31, 2015                [Page 3]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
+
+   they have the same impact on the multimedia quality, it helps in
+   identifying and diagnosing issues.
 
    RTP Control Protocol Extended Reports (XRs) [RFC3611] and other
    extensions discussed in the XRBLOCK working group provide more
    detailed statistics, which complement the basic metrics reported in
    the RTCP SR and RRs.  Section Section 5 discusses the use of XR
    metrics that may be useful for monitoring the performance of WebRTC
-   applications.  Sections Section 6 and Section 7 create a new IANA
+   applications.  Sections Section 7 and Section 6 create a new IANA
    registry and populate it with initial candidate metrics.
 
    The WebRTC application extracts the statistic from the browser by
@@ -215,17 +218,16 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
    an application may choose to poll the stack for statistics every 1
    second, in this case the underlying stack local will return the
    current snapshot of the local statistics (for incoming and outgoing
-   media streams).  However it may return the same remote statistics as
-   before for the remote statistics, as no new RTCP reports may have
 
 
 
-
-Singh, et al.            Expires August 30, 2015                [Page 4]
+Singh, et al.            Expires August 31, 2015                [Page 4]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
+   media streams).  However it may return the same remote statistics as
+   before for the remote statistics, as no new RTCP reports may have
    been received in the past 1 second.  This can occur when the polling
    interval is shorter than the average RTCP reporting interval.
 
@@ -272,16 +274,16 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
    discarded and duplicate packets.  Packets that arrive late will be
    discarded and are not reported as lost, and duplicate packets will be
    regarded as a normally received packet.  Hence, the loss metric can
-   be misleading if many duplicate packets are received or packets are
-   discarded, which causes the quality of the media transport to appear
 
 
 
-Singh, et al.            Expires August 30, 2015                [Page 5]
+Singh, et al.            Expires August 31, 2015                [Page 5]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
+   be misleading if many duplicate packets are received or packets are
+   discarded, which causes the quality of the media transport to appear
    okay from the statistic point of view, but meanwhile the users may
    actually be experiencing bad service quality.  So in such cases, it
    is better to use more accurate metrics in addition to those defined
@@ -328,16 +330,16 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
    correspond to periods of time during which the packet loss/discard
    rate is high enough to produce noticeable degradation in audio or
    video quality.  Burst gap related metrics are also introduced in
-   [RFC7003] and [RFC6958] which define two new report blocks for usage
-   in a range of RTP applications beyond those described in [RFC3611].
 
 
 
-Singh, et al.            Expires August 30, 2015                [Page 6]
+Singh, et al.            Expires August 31, 2015                [Page 6]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
+   [RFC7003] and [RFC6958] which define two new report blocks for usage
+   in a range of RTP applications beyond those described in [RFC3611].
    These metrics distinguish discarded packets from loss packets that
    occur in the bursts period and provides more information for
    diagnosing network problems.  Additionally, the block reports the
@@ -387,9 +389,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-
-
-Singh, et al.            Expires August 30, 2015                [Page 7]
+Singh, et al.            Expires August 31, 2015                [Page 7]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -445,7 +445,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 30, 2015                [Page 8]
+Singh, et al.            Expires August 31, 2015                [Page 8]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -501,36 +501,204 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 30, 2015                [Page 9]
+Singh, et al.            Expires August 31, 2015                [Page 9]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
-6.  WebRTC RTP Metrics Registry for the Statistics API
+6.  Identifiers from Sender, Receiver, and Extended Report Blocks
 
    This document describes a list of metrics and corresponding
-   identifiers relevant to RTP media in Web-based Real-time
-   Communication (WebRTC).  These group of identifiers are defined on a
-   ReportGroup corresponding to an Synchronization source (SSRC).  In
-   practice the application MUST be able to query the statistic
-   identifiers on both an incoming (remote) and outgoing (local) media
-   stream.  Since sending and receiving SR and RR are mandatory, the
-   metrics defined in the SR and RR report blocks are always available.
-   For XR metrics, it depends on two factors: 1) if it measured at the
-   endpoint, 2) if it reported by the endpoint in an XR report.  If a
-   metric is only measured by the endpoint and not reported, the metrics
-   will be only available for the incoming (remote) media stream.
-   Additionally, if the corresponding metric is also reported in an XR
-   block, it will be available for both the incoming (remote) and
-   outgoing (local) media stream.
+   identifiers relevant to RTP media in WebRTC.  These group of
+   identifiers are defined on a ReportGroup corresponding to an
+   Synchronization source (SSRC).  In practice the application MUST be
+   able to query the statistic identifiers on both an incoming (remote)
+   and outgoing (local) media stream.  Since sending and receiving SR
+   and RR are mandatory, the metrics defined in the SR and RR report
+   blocks are always available.  For XR metrics, it depends on two
+   factors: 1) if it measured at the endpoint, 2) if it reported by the
+   endpoint in an XR report.  If a metric is only measured by the
+   endpoint and not reported, the metrics will only be available for the
+   incoming (remote) media stream.  Alternatively, if the corresponding
+   metric is also reported in an XR report, it will be available for
+   both the incoming (remote) and outgoing (local) media stream.
 
-6.1.  WebRTC RTP Statistics Registry
+   For a remote statistic, the timestamp represents the timestamp from
+   an incoming SR/RR/XR packet.  Conversely, for a local statistic, it
+   refers to the current timestamp generated by the local clock
+   (typically the POSIX timestamp, i.e., milliseconds since Jan 1,
+   1970).
 
-   IANA SHALL create a new namespace for "WebRTC RTP Statistics" under
-   XRBLOCK registry.  All maintenance: changes, or additions to the
-   contents of this namespace MUST be according to the "Specification
-   Required with Expert Review" registration policy as defined in
-   [RFC5226].
+   As per [RFC3550], the octets metrics represent the payload size
+   (i.e., not including header or padding).
+
+6.1.  Cumulative Number of Packets and Octets Sent
+
+   Name: packetsSent
+
+   Definition: section 6.4.1 in [RFC3550].
+
+   Name: bytesSent
+
+   Definition: section 6.4.1 in [RFC3550].
+
+6.2.  Cumulative Number of Packets and Octets Received
+
+   Name: packetsReceived
+
+   Definition: section 6.4.1 in [RFC3550].
+
+   Name: bytesReceived
+
+   Definition: section 6.4.1 in [RFC3550].
+
+
+
+
+
+
+Singh, et al.            Expires August 31, 2015               [Page 10]
+
+Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
+
+
+6.3.  Cumulative Number of Packets Lost
+
+   Name: packetsLost
+
+   Definition: section 6.4.1 in [RFC3550].
+
+6.4.  Interval Packet Loss and Jitter
+
+   Name: jitter
+
+   Definition: section 6.4.1 in [RFC3550].
+
+   Name: fractionLost
+
+   Definition: section 6.4.1 in [RFC3550].
+
+6.5.  Cumulative Number of Packets and Octets Discarded
+
+   Name: packetsDiscarded
+
+   Definition: The cumulative number of RTP packets discarded due to
+   late or early-arrival, Appendix A (a) of [RFC7002].
+
+   Name: bytesDiscarded
+
+   Definition: The cumulative number of octets discarded due to late or
+   early-arrival, Appendix A of [RFC7243].
+
+6.6.  Cumulative Number of Packets Repaired
+
+   Name: packetsRepaired
+
+   Definition: The cumulative number of lost RTP packets repaired after
+   applying a error-resilience mechanism, Appendix A (b) of
+   [I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count].  To clarify, the
+   value is upper bound to the cumulative number of lost packets.
+
+6.7.  Burst Packet Loss and Burst Discards
+
+   Name: burstLoss
+
+   Definition: The cumulative number of RTP packets lost during loss
+   bursts, Appendix A (c) of [RFC6958].
+
+   Name: burstLossCount
+
+   Definition: The cumulative number of bursts of lost RTP packets,
+   Appendix A (e) of [RFC6958].
+
+
+
+Singh, et al.            Expires August 31, 2015               [Page 11]
+
+Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
+
+
+   Name: burstDiscardRate
+
+   Definition: The cumulative number of RTP packets discarded during
+   discard bursts, Appendix A (b) of [RFC7003].
+
+   Name: burstDiscardCount
+
+   Definition: The cumulative number of bursts of discarded RTP packets,
+   Appendix A (e) of [RFC6958].
+
+   [RFC3611] recommends a Gmin (threshold) value of 16 for classifying
+   packet loss or discard burst.
+
+6.8.  Burst/Gap Rates
+
+   Name: burstLossRate
+
+   Definition: The fraction of RTP packets lost during bursts,
+   Appendix A (a) of [RFC7004].
+
+   Name: gapLossRate
+
+   Definition: The fraction of RTP packets lost during gaps, Appendix A
+   (b) of [RFC7004].
+
+   Name: burstDiscardRate
+
+   Definition: The fraction of RTP packets discarded during bursts,
+   Appendix A (e) of [RFC7004].
+
+   Name: gapDiscardRate
+
+   Definition: The fraction of RTP packets discarded during gaps,
+   Appendix A (f) of [RFC7004].
+
+6.9.  Frame Impairment Metrics
+
+   Name: framesLost
+
+   Definition: The cumulative number of full frames lost, Appendix A (i)
+   of [RFC7004].
+
+   Name: framesCorrupted
+
+   Definition: The cumulative number of frames partially lost,
+   Appendix A (j) of [RFC7004].
+
+   Name: framesDropped
+
+
+
+Singh, et al.            Expires August 31, 2015               [Page 12]
+
+Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
+
+
+   Definition: The cumulative number of full frames discarded,
+   Appendix A (g) of [RFC7004].
+
+   Name: framesSent
+
+   Definition: The cumulative number of frames sent.
+
+   Name: framesReceived
+
+   Definition: The cumulative number of partial or full frames received.
+
+7.  IANA Considerations
+
+   This document requests IANA to create a new namespace for "RTP
+   Metrics Registry for the WebRTC Statistics API".  All maintenance:
+   changes, or additions to the contents of this namespace MUST be
+   according to the "Specification Required with Expert Review"
+   registration policy as defined in [RFC5226].  Initially, the registry
+   contains the identifiers defined in Section 6.
+
+   The following contact information is used for all registrations in
+   this document, and change control rests with the IETF.
+
+       Contact:    Varun Singh
+                   mailto:varun.singh@iki.fi
 
    A registration request MUST include the following information:
 
@@ -547,199 +715,25 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
    email of the contact person, and the individual or organization that
    has change control over the identifier.
 
-7.  Identifiers from Sender, Receiver, and Extended Report Blocks
-
-   This group of variables is well defined on a ReportGroup
-   corresponding to an SSRC.  For a remote statistic, the timestamp
-   represents the timestamp from an incoming SR/RR packet.  Conversely,
-   for a local statistic, it refers to the current timestamp generated
-   by the local clock (remembering that it is represented as
-
-
-
-Singh, et al.            Expires August 30, 2015               [Page 10]
-
-Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
-
-
-   milliseconds since Jan 1, 1970).  The octets metrics measure the
-   payload size (i.e., not including header or padding).
-
-7.1.  Cumulative Number of Packets and Octets Sent
-
-   Name: packetsSent
-
-   Definition: section 6.4.1 in [RFC3550].
-
-   Name: bytesSent
-
-   Definition: section 6.4.1 in [RFC3550].
-
-7.2.  Cumulative Number of Packets and Octets Received
-
-   Name: packetsReceived
-
-   Definition: section 6.4.1 in [RFC3550].
-
-   Name: bytesReceived
-
-   Definition: section 6.4.1 in [RFC3550].
-
-7.3.  Cumulative Number of Packets Lost
-
-   Name: packetsLost
-
-   Definition: section 6.4.1 in [RFC3550].
-
-7.4.  Interval Fraction Packets Lost and Jitter
-
-   Name: jitter
-
-   Definition: section 6.4.1 in [RFC3550].
-
-   Name: fractionLost
-
-   Definition: section 6.4.1 in [RFC3550].
-
-7.5.  Cumulative Number of Packets and Octets Discarded
-
-   Name: packetsDiscarded
-
-   Definition: The cumulative number of RTP packets discarded due to
-   late or early-arrival, Appendix A (a) of [RFC7002].
-
-   Name: bytesDiscarded
-
-
-
-
-Singh, et al.            Expires August 30, 2015               [Page 11]
-
-Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
-
-
-   Definition: The cumulative number of octets discarded due to late or
-   early-arrival, Appendix A of [RFC7243].
-
-7.6.  Cumulative Number of Packets Repaired
-
-   Name: packetsRepaired
-
-   Definition: The cumulative number of lost RTP packets repaired after
-   applying a error-resilience mechanism, Appendix A (b) of
-   [I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count].  To clarify, the
-   value is upper bound to the cumulative number of lost packets.
-
-7.7.  Burst Packet Loss and Burst Discards
-
-   Name: burstLoss
-
-   Definition: The cumulative number of RTP packets lost during loss
-   bursts, Appendix A (c) of [RFC6958].
-
-   Name: burstLossCount
-
-   Definition: The cumulative number of bursts of lost RTP packets,
-   Appendix A (e) of [RFC6958].
-
-   Name: burstDiscardRate
-
-   Definition: The cumulative number of RTP packets discarded during
-   discard bursts, Appendix A (b) of [RFC7003].
-
-   Name: burstDiscardCount
-
-   Definition: The cumulative number of bursts of discarded RTP packets,
-   Appendix A (e) of [RFC6958].
-
-   [RFC3611] recommends a Gmin (threshold) value of 16 for classifying
-   packet loss or discard burst.
-
-7.8.  Burst/Gap Rates
-
-   Name: burstLossRate
-
-   Definition: The fraction of RTP packets lost during bursts,
-   Appendix A (a) of [RFC7004].
-
-   Name: gapLossRate
-
-   Definition: The fraction of RTP packets lost during gaps, Appendix A
-   (b) of [RFC7004].
-
-
-
-Singh, et al.            Expires August 30, 2015               [Page 12]
-
-Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
-
-
-   Name: burstDiscardRate
-
-   Definition: The fraction of RTP packets discarded during bursts,
-   Appendix A (e) of [RFC7004].
-
-   Name: gapDiscardRate
-
-   Definition: The fraction of RTP packets discarded during gaps,
-   Appendix A (f) of [RFC7004].
-
-7.9.  Frame Impairment Metrics
-
-   Name: framesLost
-
-   Definition: The cumulative number of full frames lost, Appendix A (i)
-   of [RFC7004].
-
-   Name: framesCorrupted
-
-   Definition: The cumulative number of frames partially lost,
-   Appendix A (j) of [RFC7004].
-
-   Name: framesDropped
-
-   Definition: The cumulative number of full frames discarded,
-   Appendix A (g) of [RFC7004].
-
-   Name: framesSent
-
-   Definition: The cumulative number of frames sent.
-
-   Name: framesReceived
-
-   Definition: The cumulative number of partial or full frames received.
-
-8.  IANA Considerations
-
-   This document requests IANA to create a registry described in
-   Section 6, and to add all the identifiers defined in Section 7.
-
-   The following contact information is used for all registrations in
-   this document, and change control rests with the IETF.
-
-       Contact:    Varun Singh
-                   mailto:varun.singh@iki.fi
-
-
-
-
-
-
-Singh, et al.            Expires August 30, 2015               [Page 13]
-
-Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
-
-
-9.  Security Considerations
+8.  Security Considerations
 
    The monitoring activities are implemented between two browsers or
    between a browser and a server.  Therefore encryption procedures,
    such as the ones suggested for a Secure RTCP (SRTCP), need to be
    used.  Currently, the monitoring in RTCWEB introduces no new security
+
+
+
+
+Singh, et al.            Expires August 31, 2015               [Page 13]
+
+Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
+
+
    considerations beyond those described in [I-D.ietf-rtcweb-rtp-usage],
    [I-D.ietf-rtcweb-security].
 
-10.  Acknowledgements
+9.  Acknowledgements
 
    The authors would like to thank Bernard Aboba, Al Morton, Colin
    Perkins, and Shida Schubert for their valuable comments and
@@ -749,9 +743,9 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
    Harald Alvestrand (alvestrand-rtcweb-stats-registry), which inspired
    this work.
 
-11.  References
+10.  References
 
-11.1.  Normative References
+10.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119, March 1997.
@@ -776,16 +770,6 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
               Reporting Using a Source Description (SDES) Item and an
               RTCP Extended Report (XR) Block", RFC 6776, October 2012.
 
-
-
-
-
-
-Singh, et al.            Expires August 30, 2015               [Page 14]
-
-Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
-
-
    [RFC6958]  Clark, A., Zhang, S., Zhao, J., and Q. Wu, "RTP Control
               Protocol (RTCP) Extended Report (XR) Block for Burst/Gap
               Loss Metric Reporting", RFC 6958, May 2013.
@@ -793,6 +777,14 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
    [RFC7002]  Clark, A., Zorn, G., and Q. Wu, "RTP Control Protocol
               (RTCP) Extended Report (XR) Block for Discard Count Metric
               Reporting", RFC 7002, September 2013.
+
+
+
+
+Singh, et al.            Expires August 31, 2015               [Page 14]
+
+Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
+
 
    [RFC7003]  Clark, A., Huang, R., and Q. Wu, "RTP Control Protocol
               (RTCP) Extended Report (XR) Block for Burst/Gap Discard
@@ -824,7 +816,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
               IANA Considerations Section in RFCs", BCP 26, RFC 5226,
               May 2008.
 
-11.2.  Informative References
+10.2.  Informative References
 
    [I-D.ietf-rtcweb-use-cases-and-requirements]
               Holmberg, C., Hakansson, S., and G. Eriksson, "Web Real-
@@ -832,22 +824,23 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
               ietf-rtcweb-use-cases-and-requirements-16 (work in
               progress), January 2015.
 
-
-
-
-
-
-Singh, et al.            Expires August 30, 2015               [Page 15]
-
-Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
-
-
    [W3C.WD-webrtc-20150210]
               Bergkvist, A., Burnett, D., Jennings, C., and A.
               Narayanan, "WebRTC 1.0: Real-time Communication Between
               Browsers", World Wide Web Consortium WD WD-webrtc-
               20150210, February 2015,
               <http://www.w3.org/TR/2015/WD-webrtc-20150210>.
+
+
+
+
+
+
+
+Singh, et al.            Expires August 31, 2015               [Page 15]
+
+Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
+
 
    [I-D.ietf-rtcweb-rtp-usage]
               Perkins, C., Westerlund, M., and J. Ott, "Web Real-Time
@@ -887,17 +880,6 @@ A.1.  changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-01
 
    o  Added Frames sent and received metrics.
 
-
-
-
-
-
-
-Singh, et al.            Expires August 30, 2015               [Page 16]
-
-Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
-
-
 A.2.  changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-00
 
    o  Submitted as WG Draft.
@@ -907,6 +889,14 @@ A.3.  changes in draft-huang-xrblock-rtcweb-rtcp-xr-metrics-04
    o  Addressed comments from the London IETF meeting:
 
    o  Removed ECN metrics.
+
+
+
+
+Singh, et al.            Expires August 31, 2015               [Page 16]
+
+Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
+
 
    o  Merged draft-singh-xrblock-webrtc-additional-stats-01
 
@@ -918,6 +908,7 @@ Authors' Addresses
    Finland
 
    Email: varun@callstats.io
+   URI:   http://www.callstats.io/
 
 
    Rachel Huang
@@ -947,13 +938,6 @@ Authors' Addresses
    Email: dromasca@avaya.com
 
 
-
-
-Singh, et al.            Expires August 30, 2015               [Page 17]
-
-Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
-
-
    Lingli Deng
    China Mobile
 
@@ -965,44 +949,4 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Singh, et al.            Expires August 30, 2015               [Page 18]
+Singh, et al.            Expires August 31, 2015               [Page 17]
