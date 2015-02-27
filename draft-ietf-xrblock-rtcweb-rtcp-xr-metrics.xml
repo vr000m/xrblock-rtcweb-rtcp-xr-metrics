@@ -651,7 +651,7 @@ F38   The browser must be able to collect statistics, related to the
 
     <section title="Burst Packet Loss and Burst Discards">
       <!-- ######## -->
-      <t>Name: burstLoss</t>
+      <t>Name: burstPacketsLost</t>
       <t>Definition: The cumulative number of RTP packets lost during loss bursts,
         Appendix A (c) of <xref target="RFC6958" />.</t>
 
@@ -660,7 +660,7 @@ F38   The browser must be able to collect statistics, related to the
         packets, Appendix A (e) of <xref target="RFC6958" />.</t>
 
       <!-- ######## -->
-      <t>Name: burstDiscardRate</t>
+      <t>Name: burstPacketsDiscarded</t>
       <t>Definition: The cumulative number of RTP packets discarded during discard
         bursts, Appendix A (b) of <xref target="RFC7003" />.</t>
 
