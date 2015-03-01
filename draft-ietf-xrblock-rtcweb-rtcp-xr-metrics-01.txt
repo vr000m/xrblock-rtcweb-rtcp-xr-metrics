@@ -5,13 +5,13 @@
 XR Block Working Group                                          V. Singh
 Internet-Draft                                              callstats.io
 Intended status: Standards Track                                R. Huang
-Expires: August 31, 2015                                         R. Even
+Expires: September 1, 2015                                       R. Even
                                                                   Huawei
                                                             D. Romascanu
                                                                    Avaya
                                                                  L. Deng
                                                             China Mobile
-                                                       February 27, 2015
+                                                       February 28, 2015
 
 
  Considerations for Selecting RTCP Extended Report (XR) Metrics for the
@@ -44,7 +44,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 31, 2015.
+   This Internet-Draft will expire on September 1, 2015.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Singh, et al.            Expires August 31, 2015                [Page 1]
+Singh, et al.           Expires September 1, 2015               [Page 1]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Singh, et al.            Expires August 31, 2015                [Page 2]
+Singh, et al.           Expires September 1, 2015               [Page 2]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -165,7 +165,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015                [Page 3]
+Singh, et al.           Expires September 1, 2015               [Page 3]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -221,7 +221,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015                [Page 4]
+Singh, et al.           Expires September 1, 2015               [Page 4]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -277,7 +277,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015                [Page 5]
+Singh, et al.           Expires September 1, 2015               [Page 5]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -333,7 +333,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015                [Page 6]
+Singh, et al.           Expires September 1, 2015               [Page 6]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -389,7 +389,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015                [Page 7]
+Singh, et al.           Expires September 1, 2015               [Page 7]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -445,7 +445,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015                [Page 8]
+Singh, et al.           Expires September 1, 2015               [Page 8]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -501,7 +501,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015                [Page 9]
+Singh, et al.           Expires September 1, 2015               [Page 9]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -557,7 +557,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015               [Page 10]
+Singh, et al.           Expires September 1, 2015              [Page 10]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -601,7 +601,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 6.7.  Burst Packet Loss and Burst Discards
 
-   Name: burstLoss
+   Name: burstPacketsLost
 
    Definition: The cumulative number of RTP packets lost during loss
    bursts, Appendix A (c) of [RFC6958].
@@ -613,12 +613,12 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015               [Page 11]
+Singh, et al.           Expires September 1, 2015              [Page 11]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
-   Name: burstDiscardRate
+   Name: burstPacketsDiscarded
 
    Definition: The cumulative number of RTP packets discarded during
    discard bursts, Appendix A (b) of [RFC7003].
@@ -669,7 +669,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015               [Page 12]
+Singh, et al.           Expires September 1, 2015              [Page 12]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -725,7 +725,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015               [Page 13]
+Singh, et al.           Expires September 1, 2015              [Page 13]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -781,7 +781,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015               [Page 14]
+Singh, et al.           Expires September 1, 2015              [Page 14]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -837,7 +837,7 @@ Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
 
 
-Singh, et al.            Expires August 31, 2015               [Page 15]
+Singh, et al.           Expires September 1, 2015              [Page 15]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -893,7 +893,7 @@ A.3.  changes in draft-huang-xrblock-rtcweb-rtcp-xr-metrics-04
 
 
 
-Singh, et al.            Expires August 31, 2015               [Page 16]
+Singh, et al.           Expires September 1, 2015              [Page 16]
 
 Internet-Draft         RTCP XR Metrics for RTCWEB          February 2015
 
@@ -949,4 +949,4 @@ Authors' Addresses
 
 
 
-Singh, et al.            Expires August 31, 2015               [Page 17]
+Singh, et al.           Expires September 1, 2015              [Page 17]

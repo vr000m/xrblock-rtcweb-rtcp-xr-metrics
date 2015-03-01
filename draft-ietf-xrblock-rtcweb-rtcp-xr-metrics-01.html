@@ -418,7 +418,7 @@
 
   <meta name="dct.creator" content="Singh, V., Huang, R., Even, R., Romascanu, D., and L. Deng" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-01" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-2-27" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-2-28" />
   <meta name="dct.abstract" content="This document describes monitoring features related to media streams in Web real-time communication (WebRTC).  It provides a list of RTCP Sender Report, Receiver Report and Extended Report metrics, which may need to be supported by RTP implementations in some diverse environments. It also defines a new IANA registry, a list of identifiers for the WebRTC's statistics API.  These identifiers are a set of RTCP SR, RR, and XR metrics related to the transport of multimedia flows.  " />
   <meta name="description" content="This document describes monitoring features related to media streams in Web real-time communication (WebRTC).  It provides a list of RTCP Sender Report, Receiver Report and Extended Report metrics, which may need to be supported by RTP implementations in some diverse environments. It also defines a new IANA registry, a list of identifiers for the WebRTC's statistics API.  These identifiers are a set of RTCP SR, RR, and XR metrics related to the transport of multimedia flows.  " />
 
@@ -442,7 +442,7 @@
   <td class="right">R. Huang</td>
 </tr>
 <tr>
-  <td class="left">Expires: August 31, 2015</td>
+  <td class="left">Expires: September 1, 2015</td>
   <td class="right">R. Even</td>
 </tr>
 <tr>
@@ -467,7 +467,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">February 27, 2015</td>
+  <td class="right">February 28, 2015</td>
 </tr>
 
     	
@@ -487,7 +487,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 31, 2015.</p>
+<p>This Internet-Draft will expire on September 1, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -623,11 +623,11 @@ F38   The browser must be able to collect statistics, related to the
 <p id="rfc.section.6.6.p.1">Name: packetsRepaired</p>
 <p id="rfc.section.6.6.p.2">Definition: The cumulative number of lost RTP packets repaired after applying a error-resilience mechanism, Appendix A (b) of <a href="#I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count">[I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count]</a>. To clarify, the value is upper bound to the cumulative number of lost packets.</p>
 <h1 id="rfc.section.6.7"><a href="#rfc.section.6.7">6.7.</a> Burst Packet Loss and Burst Discards</h1>
-<p id="rfc.section.6.7.p.1">Name: burstLoss</p>
+<p id="rfc.section.6.7.p.1">Name: burstPacketsLost</p>
 <p id="rfc.section.6.7.p.2">Definition: The cumulative number of RTP packets lost during loss bursts, Appendix A (c) of <a href="#RFC6958">[RFC6958]</a>.</p>
 <p id="rfc.section.6.7.p.3">Name: burstLossCount</p>
 <p id="rfc.section.6.7.p.4">Definition: The cumulative number of bursts of lost RTP packets, Appendix A (e) of <a href="#RFC6958">[RFC6958]</a>.</p>
-<p id="rfc.section.6.7.p.5">Name: burstDiscardRate</p>
+<p id="rfc.section.6.7.p.5">Name: burstPacketsDiscarded</p>
 <p id="rfc.section.6.7.p.6">Definition: The cumulative number of RTP packets discarded during discard bursts, Appendix A (b) of <a href="#RFC7003">[RFC7003]</a>.</p>
 <p id="rfc.section.6.7.p.7">Name: burstDiscardCount</p>
 <p id="rfc.section.6.7.p.8">Definition: The cumulative number of bursts of discarded RTP packets, Appendix A (e) of  <a href="#RFC6958">[RFC6958]</a>.</p>
