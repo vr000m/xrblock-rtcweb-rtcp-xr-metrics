@@ -170,10 +170,14 @@ F38   The browser must be able to collect statistics, related to the
     <t>
       In this document, we provide rationale for choosing additional RTP metrics
       for the <xref target="W3C.WD-webrtc-20150210" >WebRTC getStats() API</xref>.
-      The document also creates a registry containing identifiers reported in
-      RTCP Sender, Receiver, and Extended Reports. Furthermore, all identifiers
-      proposed in this document are RECOMMENDED to be implemented by an endpoint.
-      </t>
+      The document also creates a registry containing identifiers from the metrics
+      reported in the RTCP Sender, Receiver, and Extended Reports.
+
+      All identifiers proposed in this document are RECOMMENDED to be implemented
+      by an endpoint.
+      An endpoint MAY choose not to expose an identifier if it does not implement
+      the corresponding RTCP Report.
+    </t>
   </section>
 
   <section anchor="terms" title="Terminology">
