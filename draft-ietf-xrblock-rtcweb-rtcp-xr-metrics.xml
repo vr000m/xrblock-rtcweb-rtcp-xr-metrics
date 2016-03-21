@@ -32,14 +32,14 @@
 "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5226.xml">
 <!ENTITY rfc6390 PUBLIC ""
 "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6390.xml">
+<!ENTITY I-D.ietf-xrblock-independent-burst-gap-discard PUBLIC ""
+"http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-xrblock-independent-burst-gap-discard.xml">
 <!ENTITY I-D.ietf-rtcweb-use-cases-and-requirements PUBLIC ""
 "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-use-cases-and-requirements.xml">
 <!ENTITY I-D.ietf-rtcweb-rtp-usage PUBLIC ""
 "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-rtp-usage.xml">
-<!ENTITY I-D.alvestrand-rtcweb-stats-registry PUBLIC ""
-"http://xml.resource.org/public/rfc/bibxml3/reference.I-D.alvestrand-rtcweb-stats-registry.xml">
-<!ENTITY I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count PUBLIC ""
-"http://xml2rfc.ietf.org/public/rfc/bibxml3/reference.I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count.xml">
+<!ENTITY rfc7509 PUBLIC ""
+"http://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7509.xml">
 <!ENTITY I-D.ietf-rtcweb-security PUBLIC ""
 "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-security.xml">
 <!ENTITY W3C.WD-webrtc-20150210 PUBLIC ""
@@ -55,7 +55,7 @@
 <?rfc subcompact="no" ?>
 <?rfc symrefs="yes" ?>
 <rfc ipr="trust200902"
-docName="draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-01"
+docName="draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-03"
 category="std">
 <!-- What is the category field value-->
 <front>
@@ -68,9 +68,9 @@ category="std">
       <organization abbrev="callstats.io">Nemu Dialogue Systems Oy</organization>
       <address>
         <postal>
-          <street></street>
-          <city>Espoo</city>
-          <code>02350</code>
+          <street>Runeberginkatu 4c A 4 </street>
+          <city>Helsinki</city>
+          <code>00100</code>
           <country>Finland</country>
         </postal>
         <email>varun@callstats.io</email>
@@ -138,6 +138,10 @@ category="std">
         IANA registry, a list of identifiers for the WebRTC's statistics API.
         These identifiers are a set of RTCP SR, RR, and XR metrics related to
         the transport of multimedia flows.
+      </t>
+      <t>
+        All identifiers proposed in this document are RECOMMENDED to be
+        implemented by an endpoint.
       </t>
     </abstract>
 </front>
@@ -513,7 +517,7 @@ F38   The browser must be able to collect statistics, related to the
         </t>
         <t>
           The un-repaired packets count and repaired loss count defined in
-          <xref target="I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count" /> provide the
+          <xref target="RFC7509" /> provide the
           recovery information of the error-resilience mechanisms to the monitoring
           application or the sending endpoint. The endpoint can use these metrics to
           ascertain the ratio of repaired packets to lost packets. Including this kind
@@ -645,7 +649,7 @@ F38   The browser must be able to collect statistics, related to the
       <t>Name: packetsRepaired</t>
       <t>Definition: The cumulative number of lost RTP packets repaired
       after applying a error-resilience mechanism, Appendix A (b) of <xref
-      target="I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count" />. To clarify,
+      target="RFC7509" />. To clarify,
       the value is upper bound to the cumulative number of lost packets.</t>
     </section>
 
@@ -666,7 +670,7 @@ F38   The browser must be able to collect statistics, related to the
 
       <t>Name: burstDiscardCount</t>
       <t>Definition: The cumulative number of bursts of discarded RTP
-        packets, Appendix A (e) of  <xref target="RFC6958" />.</t>
+        packets, Appendix A (e) of  <xref target="I-D.ietf-xrblock-independent-burst-gap-discard" />.</t>
 
       <t><xref target="RFC3611" /> recommends a Gmin (threshold) value of 16
       for classifying packet loss or discard burst.</t>
@@ -818,8 +822,10 @@ F38   The browser must be able to collect statistics, related to the
     &rfc7005;
     &rfc7097;
     &rfc7243;
-    &I-D.ietf-xrblock-rtcp-xr-post-repair-loss-count;
+    &rfc7509;
     &rfc5226;
+    &I-D.ietf-xrblock-independent-burst-gap-discard;
+
     <!-- &rfc6798; -->
   </references>
 
