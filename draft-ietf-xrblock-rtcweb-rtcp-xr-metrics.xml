@@ -34,8 +34,8 @@
 "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6390.xml">
 <!ENTITY I-D.ietf-xrblock-independent-burst-gap-discard PUBLIC ""
 "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-xrblock-independent-burst-gap-discard.xml">
-<!ENTITY I-D.ietf-rtcweb-use-cases-and-requirements PUBLIC ""
-"http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-use-cases-and-requirements.xml">
+<!ENTITY rfc7478 PUBLIC ""
+"http://xml.resource.org/public/rfc/bibxml/reference.RFC.7478.xml">
 <!ENTITY I-D.ietf-rtcweb-rtp-usage PUBLIC ""
 "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-rtp-usage.xml">
 <!ENTITY rfc7509 PUBLIC ""
@@ -55,7 +55,7 @@
 <?rfc subcompact="no" ?>
 <?rfc symrefs="yes" ?>
 <rfc ipr="trust200902"
-docName="draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-03"
+docName="draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-04"
 category="std">
 <!-- What is the category field value-->
 <front>
@@ -64,17 +64,20 @@ category="std">
       WebRTC Statistics API
     </title>
 
-    <author fullname="Varun Singh" initials="V." surname="Singh">
-      <organization abbrev="callstats.io">Nemu Dialogue Systems Oy</organization>
+    <author initials="V." surname="Singh" fullname="Varun Singh">
+      <organization abbrev="callstats.io">
+        CALLSTATS I/O Oy
+      </organization>
       <address>
         <postal>
-          <street>Runeberginkatu 4c A 4 </street>
-          <city>Helsinki</city>
-          <code>00100</code>
+          <street>Runeberginkatu 4c A 4</street>
+          <code>00100</code> <city>Helsinki</city>
           <country>Finland</country>
         </postal>
         <email>varun@callstats.io</email>
-        <uri>http://www.callstats.io/</uri>
+        <uri>
+          https://www.callstats.io/about
+        </uri>
       </address>
     </author>
 
@@ -134,10 +137,10 @@ category="std">
         in Web real-time communication (WebRTC).
         It provides a list of RTCP Sender Report, Receiver Report
         and Extended Report metrics, which may need to be supported by RTP
-        implementations in some diverse environments. It also defines a new
-        IANA registry, a list of identifiers for the WebRTC's statistics API.
-        These identifiers are a set of RTCP SR, RR, and XR metrics related to
-        the transport of multimedia flows.
+        implementations in some diverse environments. It lists a set of
+        identifiers for the WebRTC's statistics API. These identifiers are
+        a set of RTCP SR, RR, and XR metrics related to the transport of
+        multimedia flows.
       </t>
     </abstract>
 </front>
@@ -149,8 +152,7 @@ category="std">
       applications need to be able to estimate the service quality. If
       sufficient information (metrics or statistics) are provided to the
       applications, it can attempt to improve the media quality. <xref
-      target="I-D.ietf-rtcweb-use-cases-and-requirements" /> specifies a
-      requirement for statistics:
+      target="RFC7478" /> specifies a requirement for statistics:
     </t>
     <figure align="left" alt="" height="" suppress-title="false" title=""
             width="">
@@ -218,9 +220,8 @@ F38   The browser must be able to collect statistics, related to the
       detailed statistics, which complement the basic metrics reported in the
       RTCP SR and RRs. Section <xref target="cand-metrics" /> discusses the
       use of XR metrics that may be useful for monitoring the performance of
-      WebRTC applications. Sections <xref target="add-stats" /> and
-      <xref target="stats-groups" /> create a new IANA registry and populate
-      it with initial candidate metrics.
+      WebRTC applications. Sections <xref target="stats-groups" /> proposes
+      a set of candidate metrics.
     </t>
 
       <!-- However, it should be noted that the use of RTCP XRs is currently
@@ -727,7 +728,14 @@ F38   The browser must be able to collect statistics, related to the
 
   </section>
 
-  <section anchor="add-stats" title="IANA Considerations">
+  <section anchor="add-stats" title="Adding new metrics to WebRTC Statistics API">
+    <t> The metrics defined in this draft have already been added to the W3C WebRTC
+    specification. The current working process to add new metrics is, create an
+    issue or pull request on the repository of the W3C WebRTC specification
+    (https://github.com/w3c/webrtc-stats). </t>
+  </section>
+
+<!--   <section anchor="add-stats" title="IANA Considerations">
       <t>
         This document requests IANA to create a new namespace for
         "RTP Metrics Registry for the WebRTC Statistics API". All
@@ -762,7 +770,7 @@ F38   The browser must be able to collect statistics, related to the
         contact person, and the individual or organization that has change control over
         the identifier.
       </t>
-  </section>
+  </section> -->
 
   <section anchor="Security" title="Security Considerations">
     <t>
@@ -791,17 +799,12 @@ F38   The browser must be able to collect statistics, related to the
     <t>
       The authors would like to thank
         Bernard Aboba,
+        Harald Alvestrand,
         Al Morton,
         Colin Perkins, and
         Shida Schubert
       for their valuable comments and suggestions on earlier version of this
       document.
-    </t>
-
-    <t>
-      The authors would also like to acknowledge the contributions of
-      Harald Alvestrand (alvestrand-rtcweb-stats-registry),
-      which inspired this work.
     </t>
 
   </section>
@@ -825,14 +828,14 @@ F38   The browser must be able to collect statistics, related to the
     &rfc7097;
     &rfc7243;
     &rfc7509;
-    &rfc5226;
+    <!-- &rfc5226; -->
     &I-D.ietf-xrblock-independent-burst-gap-discard;
 
     <!-- &rfc6798; -->
   </references>
 
   <references title="Informative References">
-    &I-D.ietf-rtcweb-use-cases-and-requirements;
+    &rfc7478;
     &W3C.WD-webrtc-20150210;
     &I-D.ietf-rtcweb-rtp-usage;
     &I-D.ietf-rtcweb-security;
@@ -888,6 +891,16 @@ F38   The browser must be able to collect statistics, related to the
   <section anchor="App-a" title="Change Log">
     <t>Note to the RFC-Editor: please remove this section prior to
       publication as an RFC.</t>
+      <section title="changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-04">
+        <t><list style="symbols">
+          <t>Removed IANA registry.</t>
+         </list></t>
+      </section>
+      <section title="changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-02, -03">
+        <t><list style="symbols">
+          <t>Keep-alive versions, updates to references.</t>
+         </list></t>
+      </section>
       <section title="changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-01">
         <t><list style="symbols">
           <t>Create new registry for WebRTC media metrics.</t>
