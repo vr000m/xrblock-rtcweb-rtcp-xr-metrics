@@ -55,7 +55,7 @@
 <?rfc subcompact="no" ?>
 <?rfc symrefs="yes" ?>
 <rfc ipr="trust200902"
-docName="draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-04"
+docName="draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-05"
 category="std">
 <!-- What is the category field value-->
 <front>
@@ -106,14 +106,9 @@ category="std">
     </author>
 
     <author initials="D." surname="Romascanu" fullname="Dan Romascanu">
-      <organization>Avaya</organization>
+      <organization></organization>
       <address>
-        <postal>
-          <street>Park Atidim, Bldg. #3</street>
-          <city>Tel Aviv</city> <region></region><code>61581</code>
-          <country>Israel</country>
-        </postal>
-        <email>dromasca@avaya.com</email>
+        <email>dromasca@gmail.com</email>
       </address>
     </author>
 
