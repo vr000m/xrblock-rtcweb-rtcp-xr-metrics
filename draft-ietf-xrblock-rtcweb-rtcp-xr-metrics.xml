@@ -44,8 +44,8 @@
 "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-rtcweb-security.xml">
 <!ENTITY W3C.WD-webrtc-20161124 PUBLIC ""
 "https://xml2rfc.tools.ietf.org/public/rfc/bibxml-w3c/reference.W3C.WD-webrtc-20161124.xml">
-<!ENTITY W3C.WD-webrtc-stats-20160527 PUBLIC ""
-"https://xml2rfc.tools.ietf.org/public/rfc/bibxml-w3c/reference.W3C.WD-webrtc-stats-20160527.xml">
+<!ENTITY W3C.WD-webrtc-stats-20161214 PUBLIC ""
+"https://xml2rfc.tools.ietf.org/public/rfc/bibxml-w3c/reference.W3C.WD-webrtc-stats-20161214.xml">
 ]>
 
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
@@ -55,7 +55,7 @@
 <?rfc subcompact="no" ?>
 <?rfc symrefs="yes" ?>
 <rfc ipr="trust200902"
-docName="draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-05"
+docName="draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-06"
 category="std">
 <!-- What is the category field value-->
 <front>
@@ -70,7 +70,7 @@ category="std">
       </organization>
       <address>
         <postal>
-          <street>Runeberginkatu 4c A 4</street>
+          <street>Annankatu 31-33 C 42</street>
           <code>00100</code> <city>Helsinki</city>
           <country>Finland</country>
         </postal>
@@ -158,7 +158,7 @@ F38   The browser must be able to collect statistics, related to the
       quality of experience.
 ]]></artwork></figure>
     <t>
-      The WebRTC <xref target="W3C.WD-webrtc-stats-20160527">Stats API</xref>
+      The WebRTC <xref target="W3C.WD-webrtc-stats-20161214">Stats API</xref>
       currently lists metrics reported in the <xref target="RFC3550">RTCP Sender
       and Receiver Report (SR/RR)</xref> to fulfill this requirement. However,
       the basic metrics from RTCP SR/RR are not sufficient for precise quality
@@ -410,7 +410,7 @@ F38   The browser must be able to collect statistics, related to the
           the two run length vectors to identify congestion-related losses, i.e.,
           a router queue became overloaded causing delays and then overflowed.
           If the losses are independent, it may indicate bit-error corruption.
-          For the WebRTC <xref target="W3C.WD-webrtc-stats-20160527">Stats API</xref>,
+          For the WebRTC <xref target="W3C.WD-webrtc-stats-20161214">Stats API</xref>,
           these types of metrics are not recommended for use due to the large
           amount of data and the computation involved.
           <!-- Whereas, for local case, it's fine to have them. -->
@@ -813,7 +813,7 @@ F38   The browser must be able to collect statistics, related to the
     &rfc2119; <!-- keywords -->
     &rfc3550;
     &rfc3611;
-    &rfc4588;
+    <!-- &rfc4588; -->
     &rfc5725;
     &rfc6776;
     &rfc6958;
@@ -835,8 +835,8 @@ F38   The browser must be able to collect statistics, related to the
     &W3C.WD-webrtc-20161124;
     &I-D.ietf-rtcweb-rtp-usage;
     &I-D.ietf-rtcweb-security;
-    &W3C.WD-webrtc-stats-20160527;
-    &rfc6390;
+    &W3C.WD-webrtc-stats-20161214;
+    <!-- &rfc6390; -->
 
   </references>
 
@@ -878,6 +878,11 @@ F38   The browser must be able to collect statistics, related to the
   <section anchor="App-a" title="Change Log">
     <t>Note to the RFC-Editor: please remove this section prior to
       publication as an RFC.</t>
+      <section title="changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-05 and -06">
+        <t><list style="symbols">
+          <t>Keep alive the document! Keeping it alive.</t>
+         </list></t>
+      </section>
       <section title="changes in draft-ietf-xrblock-rtcweb-rtcp-xr-metrics-04">
         <t><list style="symbols">
           <t>Removed IANA registry.</t>
